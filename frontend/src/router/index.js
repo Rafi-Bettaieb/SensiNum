@@ -6,6 +6,7 @@ import PhishingSimulator from '../pages/PhishingSimulator.vue';
 import Quiz from '../pages/Quiz.vue';
 import Chatbot from '../pages/Chatbot.vue';
 import About from '../pages/About.vue';
+import Parcours from '../pages/Parcours.vue';
 
 const routes = [
   {
@@ -41,6 +42,11 @@ const routes = [
         path: 'about',
         name: 'About',
         component: About
+      },
+      {
+        path: 'parcours',
+        name: 'Parcours',
+        component: Parcours
       }
     ]
   }
