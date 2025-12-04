@@ -11,12 +11,15 @@ const coursesRoutes = require("./routes/courses");
 const quizzesRoutes = require("./routes/quizzes");
 const ipRoutes = require("./routes/ip");
 const metadataRoutes = require("./routes/metadata");
+const cookieParser = require("cookie-parser");
 
 // Use routes
 app.use("/courses", coursesRoutes);
 app.use("/quizzes", quizzesRoutes);
 app.use("/ip", ipRoutes);
 app.use("/metadata", metadataRoutes);
+app.use("/api/cookie-trap", require("./routes/cookieTrap"));
+app.use(cookieParser());
 
 // Start server
 const PORT = 3000;
