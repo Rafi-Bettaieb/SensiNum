@@ -21,6 +21,7 @@ const navItems = ref([
   { path: '/phishing', label: 'Phishing' },
   { path: '/parcours', label: 'Cours' },
   { path: '/quiz', label: 'Quiz' },
+  { path: '/videos', label: 'Demo Video' },
   { path: '/chatbot', label: 'Chatbot' },
   { path: '/about', label: 'À propos' }
 ]);

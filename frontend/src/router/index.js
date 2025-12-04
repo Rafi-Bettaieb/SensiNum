@@ -7,6 +7,7 @@ import Quiz from '../pages/Quiz.vue';
 import Chatbot from '../pages/Chatbot.vue';
 import About from '../pages/About.vue';
 import Parcours from '../pages/Parcours.vue';
+import Videos from '../pages/Videos.vue';
 
 const routes = [
   {
@@ -47,7 +48,13 @@ const routes = [
         path: 'parcours',
         name: 'Parcours',
         component: Parcours
+      },
+      {
+        path: 'videos',
+        name: 'Videos',
+        component: Videos
       }
+
     ]
   }
 ];
