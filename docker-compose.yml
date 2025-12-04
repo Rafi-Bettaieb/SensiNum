@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  # Service Backend
+  api:
+    build: ./backend
+    ports:
+      - "3000:3000" # Port ordi : Port conteneur
+    volumes:
+      - ./backend:/app # Magie : tes modifs de code se voient en direct !
+      - /app/node_modules
+    environment:
+      - PORT=3000
+
+  # Service Frontend
+  web:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app # Magie : Hot-reload activé pour Vue.js
+      - /app/node_modules
+    environment:
+      - VITE_API_URL=http://localhost:3000 # Pour que le front trouve le back
