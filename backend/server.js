@@ -1,18 +1,25 @@
 const express = require("express");
-const cors = require("cors");
-const helmet = require("helmet");
-
 const app = express();
+const cors = require("cors");
 
+// Middlewares
 app.use(cors());
-app.use(helmet());
 app.use(express.json());
 
-// Routes
-app.use("/api/ip", require("./routes/ip"));
-app.use("/api/metadata", require("./routes/metadata"));
-app.use("/api/chatbot", require("./routes/chatbot"));
+// Import routes
+const coursesRoutes = require("./routes/courses");
+const quizzesRoutes = require("./routes/quizzes");
+const ipRoutes = require("./routes/ip");
+const metadataRoutes = require("./routes/metadata");
 
-app.listen(3000, () => {
-  console.log("Backend running on http://localhost:3000");
+// Use routes
+app.use("/courses", coursesRoutes);
+app.use("/quizzes", quizzesRoutes);
+app.use("/ip", ipRoutes);
+app.use("/metadata", metadataRoutes);
+
+// Start server
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
