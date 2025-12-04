@@ -1,167 +1,160 @@
 # 🌐 SensiNum — Sensibilisation à la Fracture Numérique  
-Projet réalisé dans le cadre de la **Nuit de l’Info 2024**
+*Projet réalisé lors de la **Nuit de l’Info 2024***
 
 ---
 
-## 🎯 Objectif du projet  
-SensiNum est une application web destinée à **sensibiliser les utilisateurs à la fracture numérique**, aux enjeux d’accessibilité, et aux bonnes pratiques de cybersécurité.  
-Notre approche combine :
+## 🎯 Objectif du projet
 
-- Une **démonstration choc** de ce qu’un site peut savoir sur vous (IP, device, métadonnées…)
-- Un **quiz ludique** sur les bonnes pratiques de sécurité numérique
-- Un **simulateur de vulnérabilité**
-- Un **chatbot pédagogique** pour guider les utilisateurs
-- Une interface **accessible, inclusive et éthique**
+**SensiNum** est une application web visant à **sensibiliser le public aux enjeux de la fracture numérique** : accessibilité, inclusion et cybersécurité.  
+Notre plateforme propose :
 
----
-
-# 👥 Équipe & Répartition
-
-## 🔹 Leadership
-- **Marewane** — Chef d’équipe, coordination globale
-
-## 🔹 Front-end (Vue.js + Vite + TailwindCSS)
-- **Habib** — Structure, layout, intégration  
-- **Iliasse** — Interactivité, logique des composants  
-- **Yassine** — Accessibilité, UX, responsive design  
-
-*(Note : les rôles sont flexibles, chacun peut contribuer où il veut)*
-
-## 🔹 Back-end (Node.js + Express)
-- **Rafi** — API (IP, metadata, scoring sécurité)  
-- **Ayoub** — Chatbot (logique + API)
-
-## 🔹 DevOps
-- **Wajdi** — GitHub, CI/CD, déploiement (Vercel + Render)
+- ⚡ **Démo choc** : Montrez tout ce qu’un site sait sur vous (IP, appareil, métadonnées…)
+- 🧩 **Quiz interactif** : Testez vos connaissances sur la sécurité numérique
+- 🔎 **Simulateur vulnérabilités** : Mettez-vous dans la peau d’un utilisateur exposé
+- 🤖 **Chatbot pédagogique** : Obtenez des explications et conseils personnalisés
+- ♿ **Interface accessible & inclusive** : Priorité à l’ergonomie et à l’éthique
 
 ---
 
-# 🛠️ Technologies utilisées
+## 👥 Équipe & rôles
 
-## Front-end
-- **Vue.js 3**
-- **Vite**
-- **TailwindCSS**
-- **Vue Router**
+### 🚀 Coordination
+- **Marewane** — Leader, chef de projet
 
-## Back-end
-- **Node.js**
-- **Express**
-- **Helmet** (sécurité)
-- **CORS**
+### 💻 Front-end (Vue.js, Vite, TailwindCSS)
+- **Habib** — Maquettes, intégration & layout
+- **Iliasse** — Logique UI, interactions & quiz
+- **Yassine** — Accessibilité, expérience utilisateur
 
-## DevOps / Services
-- **GitHub Actions** (CI/CD)
-- **Vercel** (frontend)
-- **Render.com** (backend)
+### ⚙️ Back-end (Node.js, Express)
+- **Rafi** — APIs (IP, metadata, scoring)
+- **Ayoub** — Chatbot intelligent
 
----
+### 🔄 DevOps
+- **Wajdi** — Mise en place GitHub, CI/CD, déploiement (Vercel / Render)
 
-# 📁 Structure du projet
-
-/frontend
-├── src/
-│ ├── components/
-│ ├── pages/
-│ ├── App.vue
-│ └── main.js
-├── index.html
-└── tailwind.config.js
-
-/backend
-├── server.js
-├── routes/
-│ ├── ip.js
-│ ├── metadata.js
-│ └── chatbot.js
-├── controllers/
-└── package.json
-
-/README.md
-
+_Rôles ouverts : chaque membre peut contribuer dans tous domaines_
 
 ---
 
-# 🚀 Installation & lancement
+## ⚒️ Technologies
 
-## 🔧 Prérequis
-- Node.js 18+
-- npm
+**Front-end**
+- Vue.js 3, Vite, TailwindCSS, Vue Router
+
+**Back-end**
+- Node.js, Express, Helmet (sécurité), CORS
+
+**DevOps / Services**
+- GitHub Actions (CI/CD)
+- Vercel (déploiement frontend)
+- Render.com (déploiement backend)
 
 ---
 
-## ▶️ **Lancer le back-end (Express)**
+## 📁 Arborescence simplifiée
 
-```bash
+```
+frontend/
+ ├─ src/
+ │  ├─ components/
+ │  ├─ pages/
+ │  ├─ App.vue
+ │  └─ main.js
+ ├─ index.html
+ └─ tailwind.config.js
+
+backend/
+ ├─ server.js
+ ├─ routes/
+ │  ├─ ip.js
+ │  ├─ metadata.js
+ │  └─ chatbot.js
+ ├─ controllers/
+ └─ package.json
+
+README.md
+```
+
+---
+
+## 🚀 Installation & utilisation
+
+### 1️⃣ Pré-requis
+- [Node.js 18+](https://nodejs.org/)
+- [npm](https://www.npmjs.com/)
+
+### 2️⃣ Mise en place
+
+**Lancer le back-end :**
+
+```sh
 cd backend
 npm install
 npm run dev
+# Le serveur démarre sur http://localhost:3000
+```
 
-Serveur par défaut :
-http://localhost:3000
+**Lancer le front-end :**
 
-💻 Lancer le front-end (Vue + Vite)
+```sh
 cd frontend
 npm install
 npm run dev
+# Le serveur démarre sur http://localhost:5173
+```
 
-Serveur par défaut :
-http://localhost:5173
+### 🔌 API principales
 
-🔌 API disponibles
-GET /api/ip
+- **GET /api/ip**  
+  → Récupère l’IP publique de l’utilisateur
+- **GET /api/metadata**  
+  → Retourne les informations sur le navigateur/OS
+- **POST /api/chatbot**  
+  → Renvoie une réponse pédagogique selon l’entrée utilisateur
 
-Renvoie l’adresse IP publique de l’utilisateur.
+---
 
-GET /api/metadata
+## 🗺️ Fonctionnalités clés
 
-Renvoie des informations sur le navigateur (User-Agent, langue, OS, etc.)
+- Accueil avec explication & démonstration choc
+- Quiz sur les bonnes pratiques cybersécurité
+- Simulateur de vulnérabilité (IP + metadata + scoring)
+- Chatbot interactif & pédagogique
+- UI accessible (normes WCAG AA)
+- Design moderne & éthique
+- Portage mobile (si possible)
 
-POST /api/chatbot
+---
 
-Renvoie une réponse éducative du chatbot basée sur l’entrée utilisateur.
+## ♿ Engagements responsables
 
-🧭 Features prévues
+- **Accessibilité** prioritaire (clavier, contrastes, ARIA)
+- **Eco-responsable** : application légère & peu consommatrice
+- **Respect de la vie privée** : aucune donnée personnelle stockée
+- UI inclusive & simple
 
-Page d’accueil avec explication + démonstration choc
+---
 
-Quiz éducatif sur la cybersécurité
+## 🧪 Commandes utiles
 
-Simulateur de vulnérabilité (IP + metadata + scoring)
+- Lint Tailwind :  
+  `npm run lint`
+- Production build (frontend) :  
+  `npm run build`
 
-Chatbot pédagogique interactif
+---
 
-Parcours utilisateur accessible (WCAG AA)
+## 🎤 Pitch du projet (30s)
 
-UI sobre, moderne, responsable
+> Dans le monde numérique, beaucoup sont laissés sur le bord de la route : manque de compétences, d’accès, de soutien.  
+> **SensiNum** veut informer, accompagner et protéger.  
+> Profitez d’une application interactive, accessible et responsable pour comprendre les dangers du numérique… et apprendre à s’en protéger, simplement !
 
-Portage mobile (si le temps le permet)
+---
 
-♿ Engagements éthiques & responsables
+## 💬 Contact
 
-Accessibilité prioritaire (navigation clavier, contrastes, ARIA)
+Projet réalisé lors de la **Nuit de l’Info 2025** — BUT Info  
+**L’équipe SensiNum reste dispo pour toutes vos questions !**
 
-Application légère pour réduire l’impact écologique
-
-Aucune donnée personnelle stockée
-
-Design simple et inclusif
-
-🧪 Commandes utiles
-🧹 Lint Tailwind (optionnel)
-npm run lint
-
-
-🛠 Version de production (frontend)
-
-npm run build
-
-🎤 Pitch du projet (version courte)
-
-Dans un monde de plus en plus numérique, une partie de la population reste exclue : manque de compétences, manque d’accès, manque d’accompagnement.
-SensiNum a pour mission de sensibiliser, éduquer, et protéger.
-Notre application propose une expérience simple, interactive et accessible pour comprendre les risques du numérique… et apprendre à mieux s'en protéger.
-
-💬 Contact
-
-Projet réalisé par l’équipe Nuit de l’Info 2025 — BUT Info.
