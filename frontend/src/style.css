@@ -5,6 +5,15 @@ body {
   @apply bg-[#0d1117] text-white font-sans;
 }
 
+/* Fallback plain CSS: si Tailwind n'est pas encore traité, forcer un fond sombre
+   et enlever les marges par défaut pour éviter les bandes blanches latérales. */
+html, body, #app {
+  height: 100%;
+  margin: 0;
+  background-color: #0d1117;
+  color: #ffffff;
+}
+
 /* --- 2. UTILITAIRES (ex-utilities.css) --- */
 .container-custom {
   @apply max-w-3xl mx-auto px-4;
