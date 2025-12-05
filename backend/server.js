@@ -3,6 +3,8 @@ const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 
+const app = express();
+
 // Middlewares globaux
 app.use(cors());
 app.use(express.json());
