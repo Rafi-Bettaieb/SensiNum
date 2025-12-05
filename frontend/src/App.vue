@@ -1,11 +1,14 @@
-<template>
-  <router-view />
-</template>
-
 <script setup>
-// App principal - la navigation est gérée par le router
+import Header from './components/layout/Header.vue' // Vérifie le chemin (ex: Header.vue ou components/Header.vue)
+import Footer from './components/layout/Footer.vue' // Idem pour le footer
 </script>
 
-<style>
-/* Les styles globaux sont dans assets/styles/base.css */
-</style>
+<template>
+  <div id="app">
+    <Header />
+
+    <router-view />
+
+    <Footer />
+  </div>
+</template>

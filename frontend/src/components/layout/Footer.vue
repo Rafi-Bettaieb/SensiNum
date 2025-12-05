@@ -1,32 +1,54 @@
+<script setup>
+import { Shield, Twitter, Github, Linkedin } from 'lucide-vue-next';
+</script>
+
 <template>
-  <footer class="bg-gray-800 text-white mt-auto">
-    <div class="container mx-auto px-4 py-6">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div>
-          <h3 class="text-lg font-semibold mb-3">SensiNum</h3>
-          <p class="text-gray-400 text-sm">
-            Plateforme de sensibilisation à la cybersécurité
+  <footer class="app-footer">
+    <div class="footer-container">
+      
+      <div class="footer-grid">
+        <div class="brand-column">
+          <div class="footer-logo">
+            <Shield :size="24" class="text-[#00C16A]" fill="currentColor" />
+            <span>SécuritéNumérique</span>
+          </div>
+          <p class="brand-desc">
+            Votre allié cybersécurité. Apprenez et protégez-vous simplement.
           </p>
+          <div class="social-links">
+            <a href="#" class="social-icon"><Twitter :size="18" /></a>
+            <a href="#" class="social-icon"><Github :size="18" /></a>
+            <a href="#" class="social-icon"><Linkedin :size="18" /></a>
+          </div>
         </div>
-        <div>
-          <h3 class="text-lg font-semibold mb-3">Liens rapides</h3>
-          <ul class="space-y-2 text-sm">
-            <li><router-link to="/" class="text-gray-400 hover:text-white transition">Accueil</router-link></li>
-            <li><router-link to="/awareness" class="text-gray-400 hover:text-white transition">Sensibilisation</router-link></li>
-            <li><router-link to="/quiz" class="text-gray-400 hover:text-white transition">Quiz</router-link></li>
-            <li><router-link to="/about" class="text-gray-400 hover:text-white transition">À propos</router-link></li>
-          </ul>
+
+        <div class="links-column">
+          <h4 class="column-title">Navigation</h4>
+          <router-link to="/" class="footer-link">Accueil</router-link>
+          <router-link to="/quiz-selection" class="footer-link">Cours & Quiz</router-link>
         </div>
-        <div>
-          <h3 class="text-lg font-semibold mb-3">Contact</h3>
-          <p class="text-gray-400 text-sm">
-            © {{ new Date().getFullYear() }} SensiNum. Tous droits réservés.
-          </p>
+
+        <div class="links-column">
+          <h4 class="column-title">Aide</h4>
+          <a href="#" class="footer-link">FAQ</a>
+          <a href="#" class="footer-link">Contact</a>
+        </div>
+
+        <div class="links-column">
+          <h4 class="column-title">Légal</h4>
+          <a href="#" class="footer-link">Mentions légales</a>
+          <a href="#" class="footer-link">Confidentialité</a>
         </div>
       </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 SécuritéNumérique.</p>
+        <div class="legal-links">
+          <a href="#" class="legal-link">Confidentialité</a>
+          <a href="#" class="legal-link">Cookies</a>
+        </div>
+      </div>
+
     </div>
   </footer>
 </template>
-
-<script setup>
-</script>

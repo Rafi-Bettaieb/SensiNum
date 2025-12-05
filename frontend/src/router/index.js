@@ -43,7 +43,8 @@ const routes = [
         name: 'About',
         component: About
       },
-      { path: '/quiz-selection', component: QuizSelection }
+      { path: '/quiz-selection', 
+        component: QuizSelection }
     ]
   }
 ];
