@@ -9,6 +9,11 @@ import Chatbot from '../pages/Chatbot.vue';
 import About from '../pages/About.vue';
 import Parcours from '../pages/Parcours.vue';
 import Videos from '../pages/Videos.vue';
+import EmailSimulation from '../pages/EmailSimulation.vue';
+import PhishingQuiz from '../pages/PhishingQuiz.vue';
+import OnlineShopping from '../pages/OnlineShopping.vue';
+import PhoneScam from '../pages/PhoneScam.vue';
+import FinalExam from '../pages/FinalExam.vue';
 
 const routes = [
   {
@@ -45,8 +50,35 @@ const routes = [
         name: 'About',
         component: About
       },
-      { path: '/quiz-selection', 
-        component: QuizSelection }
+      { 
+        path: '/quiz-selection', 
+        component: QuizSelection 
+      },
+      {
+        path: 'email-simulation',
+        name: 'EmailSimulation',
+        component: EmailSimulation
+      },
+      {
+        path: 'phishing-quiz',
+        name: 'PhishingQuiz',
+        component: PhishingQuiz
+      },
+      {
+        path: 'online-shopping',
+        name: 'OnlineShopping',
+        component: OnlineShopping
+      },
+      {
+        path: 'phone-scam',
+        name: 'PhoneScam',
+        component: PhoneScam
+      },
+      {
+        path: 'final-exam',
+        name: 'FinalExam',
+        component: FinalExam
+      }
     ]
   }
 ];

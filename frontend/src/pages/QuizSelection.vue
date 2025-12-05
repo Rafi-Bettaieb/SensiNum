@@ -1,5 +1,41 @@
 <script setup>
 import { Lock, Check, Shield, Mail, Wifi } from 'lucide-vue-next';
+import { ref, onMounted, computed } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+const easyLevelCompleted = ref(false);
+const mediumLevelCompleted = ref(false);
+
+onMounted(() => {
+  // Charger l'état de complétion des niveaux
+  const finalExamCompleted = localStorage.getItem('final_exam_completed');
+  if (finalExamCompleted === 'true') {
+    easyLevelCompleted.value = true;
+  }
+  
+  // Pour le niveau moyen (à implémenter plus tard)
+  const mediumCompleted = localStorage.getItem('medium_level_completed');
+  if (mediumCompleted === 'true') {
+    mediumLevelCompleted.value = true;
+  }
+});
+
+const mediumUnlocked = computed(() => easyLevelCompleted.value);
+const hardUnlocked = computed(() => mediumLevelCompleted.value);
+
+const navigateToMedium = () => {
+  if (mediumUnlocked.value) {
+    router.push('/quiz-medium');
+  }
+};
+
+const navigateToHard = () => {
+  if (hardUnlocked.value) {
+    router.push('/quiz-hard');
+  }
+};
 </script>
 
 <template>
@@ -23,37 +59,63 @@ import { Lock, Check, Shield, Mail, Wifi } from 'lucide-vue-next';
             <p class="level-subtitle">Pour bien commencer</p>
             
             <div class="level-icon-circle">
-               <Check :size="32" class="text-black stroke-[3]" />
+               <Check v-if="easyLevelCompleted" :size="32" class="text-black stroke-[3]" />
+               <span v-else class="text-2xl font-extrabold text-[#00C16A]">1</span>
             </div>
-            <p class="level-percent">100%</p>
+            <p v-if="easyLevelCompleted" class="level-percent">100%</p>
 
             <router-link to="/quiz" class="btn-play">
-              Jouer
+              {{ easyLevelCompleted ? 'Rejouer' : 'Jouer' }}
             </router-link>
           </div>
 
-          <div class="level-card-locked">
-            <h3 class="level-title-locked">Niveau Moyen</h3>
+          <div 
+            :class="mediumUnlocked ? 'level-card-active' : 'level-card-locked'"
+            @click="navigateToMedium"
+          >
+            <h3 :class="mediumUnlocked ? 'level-title-active' : 'level-title-locked'">Niveau Moyen</h3>
             <p class="level-subtitle">Prêt pour un défi ?</p>
             
-            <div class="locked-icon-wrapper">
+            <div v-if="mediumUnlocked" class="level-icon-circle">
+               <Check v-if="mediumLevelCompleted" :size="32" class="text-black stroke-[3]" />
+               <span v-else class="text-2xl font-extrabold text-black">2</span>
+            </div>
+            <div v-else class="locked-icon-wrapper">
                 <Lock :size="32" class="text-gray-400" />
             </div>
 
-            <button disabled class="btn-locked">
+            <button 
+              v-if="mediumUnlocked"
+              class="btn-play"
+            >
+              {{ mediumLevelCompleted ? 'Rejouer' : 'Jouer' }}
+            </button>
+            <button v-else disabled class="btn-locked">
               Verrouillé
             </button>
           </div>
 
-          <div class="level-card-locked">
-            <h3 class="level-title-locked">Niveau Difficile</h3>
+          <div 
+            :class="hardUnlocked ? 'level-card-active' : 'level-card-locked'"
+            @click="navigateToHard"
+          >
+            <h3 :class="hardUnlocked ? 'level-title-active' : 'level-title-locked'">Niveau Difficile</h3>
             <p class="level-subtitle">Pour les experts</p>
             
-            <div class="locked-icon-wrapper">
+            <div v-if="hardUnlocked" class="level-icon-circle">
+               <span class="text-2xl font-extrabold text-[#00C16A]">3</span>
+            </div>
+            <div v-else class="locked-icon-wrapper">
                 <Lock :size="32" class="text-gray-400" />
             </div>
 
-            <button disabled class="btn-locked">
+            <button 
+              v-if="hardUnlocked"
+              class="btn-play"
+            >
+              Jouer
+            </button>
+            <button v-else disabled class="btn-locked">
               Verrouillé
             </button>
           </div>
