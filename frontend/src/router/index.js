@@ -1,24 +1,24 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-import DefaultLayout from '../layouts/DefaultLayout.vue';
+// Imports des layouts
+// Vérifie que ce fichier existe bien dans src/layouts/
+// Sinon, change pour un composant existant ou supprime la ligne si inutile
+import DefaultLayout from '../layouts/DefaultLayout.vue'; 
 
-// Pages principales
+// Imports des pages (Uniquement celles qui existent vraiment dans ton dossier src/pages)
 import Home from '../pages/Home.vue';
 import Awareness from '../pages/Awareness.vue';
 import PhishingSimulator from '../pages/PhishingSimulator.vue';
 import Quiz from '../pages/Quiz.vue';
+import QuizSelection from '../pages/QuizSelection.vue';
 import Chatbot from '../pages/Chatbot.vue';
 import About from '../pages/About.vue';
-
-// Autres pages
 import VideoDemos from '../pages/VideoDemos.vue';
-import QuizSelection from '../pages/QuizSelection.vue';
 import EmailSimulation from '../pages/EmailSimulation.vue';
 import PhishingQuiz from '../pages/PhishingQuiz.vue';
 import OnlineShopping from '../pages/OnlineShopping.vue';
 import PhoneScam from '../pages/PhoneScam.vue';
 import FinalExam from '../pages/FinalExam.vue';
-import  MDPRobuste from '../pages/QuizMotsDePasseRobustes.vue';
 import QuizMedium from '../pages/QuizMedium.vue';
 import EmailSimulationMedium from '../pages/EmailSimulationMedium.vue';
 import PhishingQuizMedium from '../pages/PhishingQuizMedium.vue';
@@ -30,7 +30,10 @@ import CookieTrap from '../pages/CookieTrap.vue';
 const routes = [
   {
     path: '/',
-    component: DefaultLayout,
+    // Si DefaultLayout n'existe pas, retire "component: DefaultLayout," 
+    // et retire les "children: [...]" pour mettre les routes à plat.
+    // Mais supposons qu'il existe pour l'instant.
+    component: DefaultLayout, 
     children: [
       {
         path: '',
@@ -110,11 +113,6 @@ const routes = [
         component: PhoneScam
       },
       {
-        path: '/quiz-passwords-robustes',
-        name: 'QuizMotsDePasseRobustes',
-        component: MDPRobuste
-      },
-      {
         path: 'final-exam',
         name: 'FinalExam',
         component: FinalExam
@@ -148,44 +146,21 @@ const routes = [
         path: 'final-exam-medium',
         name: 'FinalExamMedium',
         component: FinalExamMedium
+      },
+      {
       path: '/cookie-trap',
       name: 'CookieTrap',
       component: CookieTrap
     }
       
-      }
 
-      // Accueil
-      { path: '', name: 'Home', component: Home },
-
-      // Parcours / Cours
-      { path: 'parcours', name: 'Parcours', component: () => import('../pages/Parcours.vue') },
-      { path: 'cours/1', component: () => import('../pages/cours/Cours1.vue') },
-      { path: 'cours/2', component: () => import('../pages/cours/Cours2.vue') },
-      { path: 'cours/3', component: () => import('../pages/cours/Cours3.vue') },
-
-      // Pages principales
-      { path: 'awareness', name: 'Awareness', component: Awareness },
-      { path: 'phishing', name: 'PhishingSimulator', component: PhishingSimulator },
-      { path: 'quiz', name: 'Quiz', component: Quiz },
-      { path: 'chatbot', name: 'Chatbot', component: Chatbot },
-      { path: 'about', name: 'About', component: About },
-
-      // Quiz avancés
-      { path: 'quiz-selection', name: 'QuizSelection', component: QuizSelection },
-      { path: 'email-simulation', name: 'EmailSimulation', component: EmailSimulation },
-      { path: 'phishing-quiz', name: 'PhishingQuiz', component: PhishingQuiz },
-      { path: 'online-shopping', name: 'OnlineShopping', component: OnlineShopping },
-      { path: 'phone-scam', name: 'PhoneScam', component: PhoneScam },
-      { path: 'final-exam', name: 'FinalExam', component: FinalExam },
-
-      // Démos vidéo
-      { path: 'demos', name: 'Demos', component: VideoDemos },
     ]
   }
 ];
 
-export default createRouter({
+const router = createRouter({
   history: createWebHistory(),
   routes
 });
+
+export default router;

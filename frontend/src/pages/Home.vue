@@ -1,5 +1,4 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-b from-gray-900 via-gray-900 to-gray-800 text-white">
   <div class="min-h-screen bg-gradient-to-b from-gray-900 via-gray-900 to-gray-800 text-white relative">
     <section class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-24 lg:py-28">
       <div class="max-w-5xl mx-auto text-center">
@@ -10,17 +9,16 @@
           La sécurité sur internet, c'est simple ! Regardez notre vidéo de 2 minutes pour comprendre les bases.
         </p>
         
-        <div class="relative bg-gradient-to-br from-gray-700 to-gray-800 rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl hover:shadow-green-500/20 transition-shadow duration-300 aspect-video max-w-4xl mx-auto group">
         <div class="relative bg-gradient-to-br from-gray-700 to-gray-800 rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl hover:shadow-blue-500/20 transition-shadow duration-300 aspect-video max-w-4xl mx-auto group">
           <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
           <div class="absolute inset-0 flex items-center justify-center z-10">
-            <button class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-green-600 rounded-full flex items-center justify-center hover:bg-green-700 transition-all transform hover:scale-110 group-hover:scale-105 shadow-2xl ring-4 ring-green-500/30 hover:ring-green-400/50">
+            <button class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-all transform hover:scale-110 group-hover:scale-105 shadow-2xl ring-4 ring-blue-500/30 hover:ring-blue-400/50">
               <svg class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-white ml-1" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
               </svg>
             </button>
           </div>
-          <div class="w-full h-full bg-gradient-to-br from-green-900/20 to-purple-900/20 backdrop-blur-sm"></div>
+          <div class="w-full h-full bg-gradient-to-br from-blue-900/20 to-purple-900/20 backdrop-blur-sm"></div>
         </div>
       </div>
     </section>
@@ -38,12 +36,10 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-7xl mx-auto">
           <div 
-            class="bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-xl sm:rounded-2xl p-6 sm:p-8 hover:border-green-500 hover:shadow-xl hover:shadow-green-500/10 transition-all duration-300 cursor-pointer group transform hover:-translate-y-2"
-            @click="navigateTo('/awareness')"
             class="bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-xl sm:rounded-2xl p-6 sm:p-8 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 cursor-pointer group transform hover:-translate-y-2"
-            @click="navigateTo('/parcours')"
+            @click="navigateTo('/awareness')"
           >
-            <div class="text-green-500 mb-4 sm:mb-6 transform group-hover:scale-110 transition-transform duration-300">
+            <div class="text-blue-500 mb-4 sm:mb-6 transform group-hover:scale-110 transition-transform duration-300">
               <svg class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 mx-auto" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" />
               </svg>
@@ -52,7 +48,7 @@
             <p class="text-sm sm:text-base text-gray-200 text-center mb-4 sm:mb-6 leading-relaxed">
               Apprenez les bases avec des leçons simples et claires.
             </p>
-            <button class="text-green-500 font-semibold flex items-center justify-center w-full group-hover:text-green-400 transition-colors text-sm sm:text-base">
+            <button class="text-blue-500 font-semibold flex items-center justify-center w-full group-hover:text-blue-400 transition-colors text-sm sm:text-base">
               Commencer les cours 
               <svg class="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -61,10 +57,10 @@
           </div>
 
           <div 
-            class="bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-xl sm:rounded-2xl p-6 sm:p-8 hover:border-green-500 hover:shadow-xl hover:shadow-green-500/10 transition-all duration-300 cursor-pointer group transform hover:-translate-y-2"
+            class="bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-xl sm:rounded-2xl p-6 sm:p-8 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 cursor-pointer group transform hover:-translate-y-2"
             @click="navigateTo('/quiz')"
           >
-            <div class="text-green-400 mb-4 sm:mb-6 transform group-hover:scale-110 transition-transform duration-300">
+            <div class="text-blue-400 mb-4 sm:mb-6 transform group-hover:scale-110 transition-transform duration-300">
               <svg class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 mx-auto" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
               </svg>
@@ -73,7 +69,7 @@
             <p class="text-sm sm:text-base text-gray-200 text-center mb-4 sm:mb-6 leading-relaxed">
               Testez vos connaissances en vous amusant.
             </p>
-            <button class="text-green-500 font-semibold flex items-center justify-center w-full group-hover:text-green-400 transition-colors text-sm sm:text-base">
+            <button class="text-blue-500 font-semibold flex items-center justify-center w-full group-hover:text-blue-400 transition-colors text-sm sm:text-base">
               Lancer un quiz 
               <svg class="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -82,10 +78,10 @@
           </div>
 
           <div 
-            class="bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-xl sm:rounded-2xl p-6 sm:p-8 hover:border-green-500 hover:shadow-xl hover:shadow-green-500/10 transition-all duration-300 cursor-pointer group transform hover:-translate-y-2 sm:col-span-2 lg:col-span-1"
+            class="bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-xl sm:rounded-2xl p-6 sm:p-8 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 cursor-pointer group transform hover:-translate-y-2 sm:col-span-2 lg:col-span-1"
             @click="navigateTo('/phishing')"
           >
-            <div class="text-green-400 mb-4 sm:mb-6 transform group-hover:scale-110 transition-transform duration-300">
+            <div class="text-blue-400 mb-4 sm:mb-6 transform group-hover:scale-110 transition-transform duration-300">
               <svg class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 mx-auto" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M11 17a1 1 0 001.447.894l4-2A1 1 0 0017 15V9.236a1 1 0 00-1.447-.894l-4 2a1 1 0 00-.553.894V17zM15.211 6.276a1 1 0 000-1.788l-4.764-2.382a1 1 0 00-.894 0L4.789 4.488a1 1 0 000 1.788l4.764 2.382a1 1 0 00.894 0l4.764-2.382zM4.447 8.342A1 1 0 003 9.236V15a1 1 0 00.553.894l4 2A1 1 0 009 17v-5.764a1 1 0 00-.553-.894l-4-2z" />
               </svg>
@@ -94,7 +90,7 @@
             <p class="text-sm sm:text-base text-gray-200 text-center mb-4 sm:mb-6 leading-relaxed">
               Entraînez-vous avec des simulations de situations réelles.
             </p>
-            <button class="text-green-500 font-semibold flex items-center justify-center w-full group-hover:text-green-400 transition-colors text-sm sm:text-base">
+            <button class="text-blue-500 font-semibold flex items-center justify-center w-full group-hover:text-blue-400 transition-colors text-sm sm:text-base">
               Jouer maintenant 
               <svg class="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -117,8 +113,6 @@
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 max-w-6xl mx-auto">
-          <div class="flex flex-col items-start sm:items-center lg:items-start bg-gray-700/50 p-6 sm:p-8 rounded-xl sm:rounded-2xl hover:bg-gray-700 transition-all duration-300 group border border-transparent hover:border-green-500/30">
-            <div class="text-green-400 mb-4 sm:mb-6 transform group-hover:scale-110 transition-transform duration-300">
           <div class="flex flex-col items-start sm:items-center lg:items-start bg-gray-700/50 p-6 sm:p-8 rounded-xl sm:rounded-2xl hover:bg-gray-700 transition-all duration-300 group border border-transparent hover:border-blue-500/30">
             <div class="text-blue-400 mb-4 sm:mb-6 transform group-hover:scale-110 transition-transform duration-300">
               <svg class="w-10 h-10 sm:w-12 sm:h-12" fill="currentColor" viewBox="0 0 20 20">
@@ -133,8 +127,6 @@
             </p>
           </div>
 
-          <div class="flex flex-col items-start sm:items-center lg:items-start bg-gray-700/50 p-6 sm:p-8 rounded-xl sm:rounded-2xl hover:bg-gray-700 transition-all duration-300 group border border-transparent hover:border-green-500/30">
-            <div class="text-green-400 mb-4 sm:mb-6 transform group-hover:scale-110 transition-transform duration-300">
           <div class="flex flex-col items-start sm:items-center lg:items-start bg-gray-700/50 p-6 sm:p-8 rounded-xl sm:rounded-2xl hover:bg-gray-700 transition-all duration-300 group border border-transparent hover:border-blue-500/30">
             <div class="text-blue-400 mb-4 sm:mb-6 transform group-hover:scale-110 transition-transform duration-300">
               <svg class="w-10 h-10 sm:w-12 sm:h-12" fill="currentColor" viewBox="0 0 20 20">
@@ -148,9 +140,7 @@
               Découvrez comment créer des mots de passe forts et faciles à retenir.
             </p>
           </div>
-
-          <div class="flex flex-col items-start sm:items-center lg:items-start bg-gray-700/50 p-6 sm:p-8 rounded-xl sm:rounded-2xl hover:bg-gray-700 transition-all duration-300 group border border-transparent hover:border-green-500/30 sm:col-span-2 lg:col-span-1">
-            <div class="text-green-400 mb-4 sm:mb-6 transform group-hover:scale-110 transition-transform duration-300">
+a
           <div class="flex flex-col items-start sm:items-center lg:items-start bg-gray-700/50 p-6 sm:p-8 rounded-xl sm:rounded-2xl hover:bg-gray-700 transition-all duration-300 group border border-transparent hover:border-blue-500/30 sm:col-span-2 lg:col-span-1">
             <div class="text-blue-400 mb-4 sm:mb-6 transform group-hover:scale-110 transition-transform duration-300">
               <svg class="w-10 h-10 sm:w-12 sm:h-12" fill="currentColor" viewBox="0 0 20 20">
