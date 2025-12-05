@@ -19,6 +19,7 @@ import PhishingQuiz from '../pages/PhishingQuiz.vue';
 import OnlineShopping from '../pages/OnlineShopping.vue';
 import PhoneScam from '../pages/PhoneScam.vue';
 import FinalExam from '../pages/FinalExam.vue';
+import  MDPRobuste from '../pages/QuizMotsDePasseRobustes.vue';
 
 const routes = [
   {
@@ -87,6 +88,11 @@ const routes = [
         path: 'phone-scam',
         name: 'PhoneScam',
         component: PhoneScam
+      },
+      {
+        path: '/quiz-passwords-robustes',
+        name: 'QuizMotsDePasseRobustes',
+        component: MDPRobuste
       },
       {
         path: 'final-exam',
