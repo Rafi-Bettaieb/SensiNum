@@ -1,0 +1,1 @@
+function s(){return JSON.parse(localStorage.getItem("cours_progress")||"{}")}function o(e){localStorage.setItem("cours_progress",JSON.stringify(e))}function t(e){const r=s();r[e]=!0,o(r)}function n(e){return s()[e]===!0}export{t as c,n as i};
