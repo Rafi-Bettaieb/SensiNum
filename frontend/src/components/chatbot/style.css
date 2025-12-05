@@ -1,9 +1,12 @@
-/* === Variables globales pour le chatbot === */
+/* === Variables globales pour le chatbot (Mise à jour Vert) === */
 :root {
-  --cb-primary-color: #724ae8;
-  --cb-primary-hover: #5d3bc4;
+  /* Le vert officiel de ton site */
+  --cb-primary-color: #00C16A; 
+  /* Un vert un peu plus sombre pour le survol */
+  --cb-primary-hover: #00a058; 
+  
   --cb-bg-color: #fff;
-  --cb-user-msg-bg: #724ae8;
+  --cb-user-msg-bg: #00C16A;
   --cb-bot-msg-bg: #f2f2f2;
 }
 
@@ -31,7 +34,7 @@
 }
 
 #chatbot-toggler span {
-  color: #fff;
+  color: #000; /* Texte noir pour le contraste sur le vert vif */
   position: absolute;
   font-size: 1.5rem;
 }
@@ -95,24 +98,24 @@
 }
 
 .chat-header .chat-logo {
-  fill: #fff;
+  fill: #000; /* Logo noir */
   width: 35px;
   height: 35px;
-  background: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.2);
   border-radius: 50%;
   padding: 6px;
 }
 
 .chat-header .logo-text {
-  color: #fff;
+  color: #000; /* Texte noir dans le header */
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: 700;
   margin: 0;
 }
 
 .chat-header #close-chatbot {
   border: none;
-  color: #fff;
+  color: #000; /* Icône fermer noire */
   background: none;
   font-size: 1.9rem;
   cursor: pointer;
@@ -122,7 +125,7 @@
   justify-content: center;
 }
 .chat-header #close-chatbot:hover {
-  background: rgba(255,255,255,0.1);
+  background: rgba(0,0,0,0.1);
 }
 
 /* === Body === */
@@ -176,7 +179,8 @@
 
 .chat-body .user-message .message-text {
   background: var(--cb-user-msg-bg);
-  color: #fff;
+  color: #000; /* Texte noir pour être lisible sur le vert vif */
+  font-weight: 500;
   border-radius: 13px 13px 3px 13px;
 }
 
@@ -261,7 +265,7 @@
   border: none;
   font-size: 1.15rem;
   cursor: pointer;
-  color: #7041ff;
+  color: var(--cb-primary-color); /* Icônes vertes */
   background: none;
   border-radius: 50%;
   transition: 0.2s ease;
@@ -276,7 +280,7 @@
 
 .chat-controls #send-message {
   background: var(--cb-primary-color);
-  color: #fff;
+  color: #000; /* Flèche noire sur fond vert */
 }
 
 .chat-controls #send-message:hover {
