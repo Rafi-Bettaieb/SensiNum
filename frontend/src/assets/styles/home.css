@@ -1,0 +1,146 @@
+/* Home Page Styles */
+
+/* Hero Section */
+.home-hero {
+  @apply container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-24 lg:py-28;
+}
+
+.home-hero-content {
+  @apply max-w-5xl mx-auto text-center;
+}
+
+.home-hero-title {
+  @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 leading-tight text-white;
+  animation: fadeIn 0.8s ease-in;
+}
+
+.home-hero-subtitle {
+  @apply text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-8 sm:mb-10 md:mb-12 px-4 leading-relaxed;
+}
+
+.home-hero-image-container {
+  @apply mt-8 sm:mt-10 md:mt-12 max-w-4xl mx-auto;
+}
+
+.home-hero-image {
+  @apply w-full h-auto rounded-xl sm:rounded-2xl lg:rounded-3xl shadow-2xl hover:shadow-green-500/20 transition-shadow duration-300;
+}
+
+/* Activities Section */
+.home-activities {
+  @apply bg-gray-900 py-12 sm:py-16 md:py-20 lg:py-24;
+}
+
+.home-section-header {
+  @apply text-center mb-10 sm:mb-12 md:mb-16;
+}
+
+.home-section-title {
+  @apply text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 text-white;
+  animation: slideUp 0.6s ease-out;
+}
+
+.home-section-subtitle {
+  @apply text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto px-4 leading-relaxed;
+}
+
+.home-activities-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-7xl mx-auto;
+}
+
+.home-activity-card {
+  @apply bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-xl sm:rounded-2xl p-6 sm:p-8 hover:border-green-500 hover:shadow-xl hover:shadow-green-500/10 transition-all duration-300 cursor-pointer transform hover:-translate-y-2;
+}
+
+.home-activity-icon-wrapper {
+  @apply text-green-500 mb-4 sm:mb-6 transform group-hover:scale-110 transition-transform duration-300;
+}
+
+.home-activity-icon {
+  @apply w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 mx-auto;
+}
+
+.home-activity-title {
+  @apply text-xl sm:text-2xl font-bold mb-2 sm:mb-3 text-center text-white;
+}
+
+.home-activity-description {
+  @apply text-sm sm:text-base text-gray-200 text-center mb-4 sm:mb-6 leading-relaxed;
+}
+
+.home-activity-btn {
+  @apply text-green-500 font-semibold flex items-center justify-center w-full group-hover:text-green-400 transition-colors text-sm sm:text-base;
+}
+
+.home-activity-btn-icon {
+  @apply w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform;
+}
+
+/* Dangers Section */
+.home-dangers {
+  @apply bg-gray-800 py-12 sm:py-16 md:py-20 lg:py-24;
+}
+
+.home-dangers-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 max-w-6xl mx-auto;
+}
+
+.home-danger-card {
+  @apply flex flex-col items-start sm:items-center lg:items-start bg-gray-700/50 p-6 sm:p-8 rounded-xl sm:rounded-2xl hover:bg-gray-700 transition-all duration-300 border border-transparent hover:border-green-500/30;
+}
+
+.home-danger-icon-wrapper {
+  @apply text-green-500 mb-4 sm:mb-6 transform group-hover:scale-110 transition-transform duration-300;
+}
+
+.home-danger-icon {
+  @apply w-10 h-10 sm:w-12 sm:h-12;
+}
+
+.home-danger-title {
+  @apply text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-center sm:text-center lg:text-left w-full text-white;
+}
+
+.home-danger-description {
+  @apply text-sm sm:text-base text-gray-200 text-center sm:text-center lg:text-left leading-relaxed;
+}
+
+/* Footer */
+.home-footer {
+  @apply bg-gray-900 border-t border-gray-800 py-6 sm:py-8;
+}
+
+.home-footer-content {
+  @apply flex flex-col md:flex-row justify-between items-center text-gray-400 text-xs sm:text-sm space-y-4 md:space-y-0;
+}
+
+.home-footer-section-title {
+  @apply text-white font-semibold mb-2;
+}
+
+.home-footer-text {
+  @apply text-gray-400 text-sm;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
