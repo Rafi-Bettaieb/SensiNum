@@ -1,16 +1,14 @@
-/* === Variables globales pour le chatbot (Mise à jour Vert) === */
+/* === Variables globales pour le chatbot === */
 :root {
-  /* Le vert officiel de ton site */
-  --cb-primary-color: #00C16A; 
-  /* Un vert un peu plus sombre pour le survol */
-  --cb-primary-hover: #00a058; 
-  
+  /* On remplace le violet par ton vert #00C16A */
+  --cb-primary-color: #00C16A;
+  --cb-primary-hover: #00a058;
   --cb-bg-color: #fff;
   --cb-user-msg-bg: #00C16A;
   --cb-bot-msg-bg: #f2f2f2;
 }
 
-/* === Chatbot Toggle Button === */
+/* === Chatbot Toggle Button (Le rond flottant) === */
 #chatbot-toggler {
   position: fixed;
   bottom: 30px;
@@ -34,7 +32,8 @@
 }
 
 #chatbot-toggler span {
-  color: #000; /* Texte noir pour le contraste sur le vert vif */
+  /* CORRECTION ICI : Texte noir pour bien voir sur le vert */
+  color: #000000;
   position: absolute;
   font-size: 1.5rem;
 }
@@ -101,13 +100,13 @@
   fill: #000; /* Logo noir */
   width: 35px;
   height: 35px;
-  background: rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.2); /* Fond légèrement transparent */
   border-radius: 50%;
   padding: 6px;
 }
 
 .chat-header .logo-text {
-  color: #000; /* Texte noir dans le header */
+  color: #000000;
   font-size: 1.1rem;
   font-weight: 700;
   margin: 0;
@@ -115,7 +114,8 @@
 
 .chat-header #close-chatbot {
   border: none;
-  color: #000; /* Icône fermer noire */
+  /* CORRECTION ICI : Croix de fermeture noire */
+  color: #000000;
   background: none;
   font-size: 1.9rem;
   cursor: pointer;
@@ -169,19 +169,27 @@
   font-size: 0.95rem;
   word-wrap: break-word;
   line-height: 1.5;
+  /* 1. On définit la couleur de base sur Noir */
+  color: #000000 !important;
+}
+
+.chat-body .message-text * {
+  color: #000000 !important;
+  opacity: 1 !important;
 }
 
 .chat-body .bot-message .message-text {
   background: var(--cb-bot-msg-bg);
   border-radius: 13px 13px 13px 3px;
-  color: #000;
+  /* On s'assure que le fond reste gris clair */
+  color: #000000 !important;
 }
 
 .chat-body .user-message .message-text {
   background: var(--cb-user-msg-bg);
-  color: #000; /* Texte noir pour être lisible sur le vert vif */
-  font-weight: 500;
   border-radius: 13px 13px 3px 13px;
+  font-weight: 600; /* Un peu plus gras pour bien voir sur le vert */
+  color: #000000 !important;
 }
 
 /* Liens dans le markdown */
@@ -265,7 +273,7 @@
   border: none;
   font-size: 1.15rem;
   cursor: pointer;
-  color: var(--cb-primary-color); /* Icônes vertes */
+  color: var(--cb-primary-color); /* Couleur verte pour les icônes */
   background: none;
   border-radius: 50%;
   transition: 0.2s ease;
@@ -280,7 +288,8 @@
 
 .chat-controls #send-message {
   background: var(--cb-primary-color);
-  color: #000; /* Flèche noire sur fond vert */
+  /* CORRECTION ICI : Flèche noire sur le bouton d'envoi vert */
+  color: #000000; 
 }
 
 .chat-controls #send-message:hover {
