@@ -38,6 +38,25 @@
   @apply absolute top-6 left-1/2 -translate-x-1/2 w-full h-[850px] pointer-events-none opacity-30;
 }
 
+/* Animation du chemin qui se dessine */
+.background-svg path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  transition: stroke-dashoffset 2s ease-in-out, stroke 0.5s ease;
+}
+
+.background-svg path.path-active {
+  stroke-dashoffset: 0;
+  stroke: #00C16A;
+  opacity: 1;
+}
+
+.background-svg path.path-completed {
+  stroke-dashoffset: 0;
+  stroke: #00C16A;
+  opacity: 0.6;
+}
+
 /* --- Styles des étapes (Steps) --- */
 .step-item {
   /* CORRECTION : J'ai supprimé 'group' ici pour corriger l'erreur */
@@ -80,7 +99,7 @@
 .label-locked  { @apply mt-4 font-bold text-gray-500 text-lg; }
 
 .label-current { 
-  @apply mt-4 font-bold text-lg text-white transition; 
+  @apply mt-4 font-bold text-lg text-white transition;
 }
 
 

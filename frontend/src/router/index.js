@@ -13,7 +13,12 @@ import Quiz from '../pages/Quiz.vue';
 import QuizSelection from '../pages/QuizSelection.vue';
 import Chatbot from '../pages/Chatbot.vue';
 import About from '../pages/About.vue';
-import VideoDemos from '../pages/VideoDemos.vue'; 
+import VideoDemos from '../pages/VideoDemos.vue';
+import EmailSimulation from '../pages/EmailSimulation.vue';
+import PhishingQuiz from '../pages/PhishingQuiz.vue';
+import OnlineShopping from '../pages/OnlineShopping.vue';
+import PhoneScam from '../pages/PhoneScam.vue';
+import FinalExam from '../pages/FinalExam.vue';
 
 const routes = [
   {
@@ -59,12 +64,12 @@ const routes = [
         component: About
       },
       {
-        path: 'demos', // Pas de '/' au début quand on est dans des children
+        path: 'demos',
         name: 'Demos',
         component: VideoDemos
       },
       {
-        path: 'quiz-selection', // Idem, pas de '/'
+        path: 'quiz-selection',
         name: 'QuizSelection',
         component: QuizSelection 
       },
@@ -79,6 +84,32 @@ const routes = [
       {
         path: '/cours/3',
         component: () => import('../pages/cours/Cours3.vue')
+        component: QuizSelection
+      },
+      {
+        path: 'email-simulation',
+        name: 'EmailSimulation',
+        component: EmailSimulation
+      },
+      {
+        path: 'phishing-quiz',
+        name: 'PhishingQuiz',
+        component: PhishingQuiz
+      },
+      {
+        path: 'online-shopping',
+        name: 'OnlineShopping',
+        component: OnlineShopping
+      },
+      {
+        path: 'phone-scam',
+        name: 'PhoneScam',
+        component: PhoneScam
+      },
+      {
+        path: 'final-exam',
+        name: 'FinalExam',
+        component: FinalExam
       }
 
 
