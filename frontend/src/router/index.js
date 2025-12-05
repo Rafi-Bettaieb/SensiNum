@@ -19,6 +19,7 @@ import PhishingQuiz from '../pages/PhishingQuiz.vue';
 import OnlineShopping from '../pages/OnlineShopping.vue';
 import PhoneScam from '../pages/PhoneScam.vue';
 import FinalExam from '../pages/FinalExam.vue';
+import CookieTrap from '../pages/CookieTrap.vue';
 
 const routes = [
   {
@@ -110,6 +111,13 @@ const routes = [
         path: 'final-exam',
         name: 'FinalExam',
         component: FinalExam
+      },
+      {
+      path: '/cookie-trap',
+      name: 'CookieTrap',
+      component: CookieTrap
+    }
+      
       }
 
 
