@@ -1,14 +1,24 @@
 <script setup>
-import Header from './components/layout/Header.vue' // Vérifie le chemin (ex: Header.vue ou components/Header.vue)
-import Footer from './components/layout/Footer.vue' // Idem pour le footer
+// Import du conteneur principal du chatbot
+import ChatbotIndex from './components/chatbot/ChatbotIndex.vue';
+import Header from './components/layout/Header.vue' 
+import Footer from './components/layout/Footer.vue'
 </script>
 
 <template>
-  <div id="app">
-    <Header />
+  <div class="app-container">
+        <Header />
 
     <router-view />
-
-    <Footer />
+    <ChatbotIndex />
+        <Footer />
   </div>
 </template>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #f4f4f9;
+}
+</style>
