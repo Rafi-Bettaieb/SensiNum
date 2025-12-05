@@ -1,0 +1,296 @@
+/* === Variables globales pour le chatbot (Mise à jour Vert) === */
+:root {
+  /* Le vert officiel de ton site */
+  --cb-primary-color: #00C16A; 
+  /* Un vert un peu plus sombre pour le survol */
+  --cb-primary-hover: #00a058; 
+  
+  --cb-bg-color: #fff;
+  --cb-user-msg-bg: #00C16A;
+  --cb-bot-msg-bg: #f2f2f2;
+}
+
+/* === Chatbot Toggle Button === */
+#chatbot-toggler {
+  position: fixed;
+  bottom: 30px;
+  right: 35px;
+  border: none;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  background: var(--cb-primary-color);
+  transition: all 0.2s ease;
+  z-index: 9999;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+#chatbot-toggler:hover {
+  background: var(--cb-primary-hover);
+}
+
+#chatbot-toggler span {
+  color: #000; /* Texte noir pour le contraste sur le vert vif */
+  position: absolute;
+  font-size: 1.5rem;
+}
+
+#chatbot-toggler span.hidden {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+#chatbot-toggler span.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* === Chatbot Popup === */
+.chatbot-popup {
+  position: fixed;
+  right: 35px;
+  bottom: 90px;
+  width: 420px;
+  background: var(--cb-bg-color);
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
+              0 32px 64px -48px rgba(0,0,0,0.5);
+  z-index: 9998;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.1s ease;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Responsive */
+@media (max-width: 490px) {
+  .chatbot-popup {
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    z-index: 10000;
+  }
+  .chatbot-popup .chat-header { padding: 12px 15px; }
+  .chat-body { height: calc(100% - 130px); }
+  .chat-footer { padding: 10px 15px 15px; }
+}
+
+/* === Header === */
+.chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--cb-primary-color);
+  padding: 15px 22px;
+}
+
+.chat-header .header-info {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.chat-header .chat-logo {
+  fill: #000; /* Logo noir */
+  width: 35px;
+  height: 35px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  padding: 6px;
+}
+
+.chat-header .logo-text {
+  color: #000; /* Texte noir dans le header */
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.chat-header #close-chatbot {
+  border: none;
+  color: #000; /* Icône fermer noire */
+  background: none;
+  font-size: 1.9rem;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.chat-header #close-chatbot:hover {
+  background: rgba(0,0,0,0.1);
+}
+
+/* === Body === */
+.chat-body {
+  padding: 25px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+  height: 400px;
+  margin-bottom: 80px;
+  scrollbar-width: thin;
+  scrollbar-color: #ccccf2 transparent;
+  background-color: #fff;
+}
+
+.chat-body .message {
+  display: flex;
+  gap: 11px;
+  align-items: flex-end;
+}
+
+.chat-body .message.user-message {
+  justify-content: flex-end;
+  flex-direction: row; 
+}
+
+.chat-body .bot-avatar {
+  fill: var(--cb-primary-color);
+  width: 35px;
+  height: 35px;
+  background: #f2f2f2;
+  border-radius: 50%;
+  padding: 6px;
+  flex-shrink: 0;
+}
+
+.chat-body .message-text {
+  padding: 12px 16px;
+  max-width: 75%;
+  font-size: 0.95rem;
+  word-wrap: break-word;
+  line-height: 1.5;
+}
+
+.chat-body .bot-message .message-text {
+  background: var(--cb-bot-msg-bg);
+  border-radius: 13px 13px 13px 3px;
+  color: #000;
+}
+
+.chat-body .user-message .message-text {
+  background: var(--cb-user-msg-bg);
+  color: #000; /* Texte noir pour être lisible sur le vert vif */
+  font-weight: 500;
+  border-radius: 13px 13px 3px 13px;
+}
+
+/* Liens dans le markdown */
+.chat-body .message-text a {
+    color: inherit;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+/* === Thinking Indicator === */
+.thinking-indicator {
+  display: flex;
+  gap: 4px;
+  padding: 12px 16px;
+  background: var(--cb-bot-msg-bg);
+  border-radius: 13px 13px 13px 3px;
+}
+
+.thinking-indicator .dot {
+  height: 7px;
+  width: 7px;
+  background: #6f6c6c;
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: blink 1s infinite linear;
+}
+
+@keyframes blink {
+  50% { opacity: 0.2; }
+}
+
+.thinking-indicator .dot:nth-child(1) { animation-delay: 0.2s; }
+.thinking-indicator .dot:nth-child(2) { animation-delay: 0.4s; }
+.thinking-indicator .dot:nth-child(3) { animation-delay: 0.6s; }
+
+/* === Footer & Input === */
+.chat-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: var(--cb-bg-color);
+  padding: 15px 22px 20px;
+  box-sizing: border-box;
+}
+
+.chat-form {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  outline: 1px solid #ccc;
+  border-radius: 32px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.06);
+}
+
+.chat-form:focus-within {
+  outline: 2px solid var(--cb-primary-color);
+}
+
+.chat-form .message-input {
+  border: none;
+  outline: none;
+  background: none;
+  height: 47px;
+  width: 100%;
+  padding: 14px 0 13px 18px;
+  font-size: 0.95rem;
+  resize: none; 
+  color: #333;
+}
+
+.chat-controls {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding-right: 6px;
+}
+
+.chat-controls button {
+  height: 35px;
+  width: 35px;
+  border: none;
+  font-size: 1.15rem;
+  cursor: pointer;
+  color: var(--cb-primary-color); /* Icônes vertes */
+  background: none;
+  border-radius: 50%;
+  transition: 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat-controls button:hover {
+  background: #f1f1f1;
+}
+
+.chat-controls #send-message {
+  background: var(--cb-primary-color);
+  color: #000; /* Flèche noire sur fond vert */
+}
+
+.chat-controls #send-message:hover {
+  background: var(--cb-primary-hover);
+}
+
+/* === Emoji Picker Overlay === */
+.emoji-picker-container {
+  position: absolute;
+  bottom: 80px;
+  right: 0;
+  z-index: 10001;
+}
