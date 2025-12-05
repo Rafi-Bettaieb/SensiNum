@@ -4,6 +4,7 @@ import Home from '../pages/Home.vue';
 import Awareness from '../pages/Awareness.vue';
 import PhishingSimulator from '../pages/PhishingSimulator.vue';
 import Quiz from '../pages/Quiz.vue';
+import QuizSelection from '../pages/QuizSelection.vue';
 import Chatbot from '../pages/Chatbot.vue';
 import About from '../pages/About.vue';
 import Parcours from '../pages/Parcours.vue';
@@ -44,17 +45,8 @@ const routes = [
         name: 'About',
         component: About
       },
-      {
-        path: 'parcours',
-        name: 'Parcours',
-        component: Parcours
-      },
-      {
-        path: 'videos',
-        name: 'Videos',
-        component: Videos
-      }
-
+      { path: '/quiz-selection', 
+        component: QuizSelection }
     ]
   }
 ];
