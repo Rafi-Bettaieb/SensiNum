@@ -84,7 +84,6 @@ const routes = [
       {
         path: '/cours/3',
         component: () => import('../pages/cours/Cours3.vue')
-        component: QuizSelection
       },
       {
         path: 'email-simulation',
