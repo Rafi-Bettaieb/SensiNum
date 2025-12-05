@@ -1,5 +1,5 @@
 <template>
-  <nav class="flex items-center space-x-6">
+  <nav class="hidden md:flex items-center space-x-8">
     <router-link
       v-for="item in navItems"
       :key="item.path"
@@ -21,6 +21,7 @@ const navItems = ref([
   { path: '/phishing', label: 'Phishing' },
   { path: '/parcours', label: 'Cours' },
   { path: '/quiz', label: 'Quiz' },
+  { path: '/videos', label: 'Demo Video' },
   { path: '/chatbot', label: 'Chatbot' },
   { path: '/about', label: 'À propos' }
 ]);
@@ -28,10 +29,10 @@ const navItems = ref([
 
 <style scoped>
 .nav-link {
-  @apply text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium;
+  @apply text-gray-300 hover:text-white transition-colors duration-200 font-medium text-sm;
 }
 
 .nav-link.active {
-  @apply text-blue-600 border-b-2 border-blue-600;
+  @apply text-white;
 }
 </style>

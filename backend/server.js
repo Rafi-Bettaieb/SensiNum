@@ -13,6 +13,7 @@ const coursesRoutes = require("./routes/courses");
 const quizzesRoutes = require("./routes/quizzes");
 const ipRoutes = require("./routes/ip");
 const metadataRoutes = require("./routes/metadata");
+const cookieParser = require("cookie-parser");
 
 // Import route chatbot
 const chatbotRoutes = require("./routes/chatbot");
