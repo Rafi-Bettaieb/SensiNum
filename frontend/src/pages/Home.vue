@@ -41,7 +41,7 @@
           <!-- Cours faciles -->
           <div 
             class="bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-xl sm:rounded-2xl p-6 sm:p-8 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 cursor-pointer group transform hover:-translate-y-2"
-            @click="navigateTo('/awareness')"
+            @click="navigateTo('/parcours')"
           >
             <div class="text-blue-500 mb-4 sm:mb-6 transform group-hover:scale-110 transition-transform duration-300">
               <svg class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 mx-auto" fill="currentColor" viewBox="0 0 20 20">

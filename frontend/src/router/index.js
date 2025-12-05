@@ -29,6 +29,11 @@ const routes = [
         component: Home
       },
       {
+        path: 'parcours',
+        name: 'Parcours',
+        component: () => import('../pages/Parcours.vue')
+      },
+      {
         path: 'awareness',
         name: 'Awareness',
         component: Awareness
@@ -62,7 +67,21 @@ const routes = [
         path: 'quiz-selection', // Idem, pas de '/'
         name: 'QuizSelection',
         component: QuizSelection 
+      },
+      {
+        path: '/cours/1',
+        component: () => import('../pages/cours/Cours1.vue')
+      },
+      {
+        path: '/cours/2',
+        component: () => import('../pages/cours/Cours2.vue')
+      },
+      {
+        path: '/cours/3',
+        component: () => import('../pages/cours/Cours3.vue')
       }
+
+
     ]
   }
 ];
