@@ -1,21 +1,23 @@
 <template>
-  <div class="max-w-4xl mx-auto p-6 text-gray-200">
+  <div class="min-h-screen bg-gradient-to-b from-gray-900 via-gray-900 to-gray-800 text-white">
 
-    <!-- Title -->
-    <h1 class="text-3xl font-bold mb-3">Votre parcours d'apprentissage</h1>
-    <p class="text-gray-400 mb-8">
-      Suivez les étapes dans l'ordre pour maîtriser les bases de la sécurité numérique.
-      Chaque étape vous rapproche d'une meilleure hygiène numérique.
-    </p>
+    <section class="container mx-auto px-4 py-16">
+      <h1 class="text-4xl sm:text-5xl font-bold mb-4">Parcours d’apprentissage</h1>
 
-    <!-- Timeline & Steps -->
-    <div class="relative border-l border-gray-700 pl-8 space-y-6">
-      <StepCard
-        v-for="step in steps"
-        :key="step.id"
-        :step="step"
-      />
-    </div>
+      <p class="text-gray-300 text-lg max-w-2xl mb-12">
+        Explorez les étapes essentielles pour renforcer vos compétences en cybersécurité.
+      </p>
+
+      <div class="relative border-l border-gray-700 pl-10 space-y-12">
+        <StepCard 
+          v-for="step in steps" 
+          :key="step.id"
+          :step="step"
+          @open-course="openCourse"
+        />
+      </div>
+
+    </section>
 
   </div>
 </template>
@@ -23,28 +25,53 @@
 <script setup>
 import StepCard from "../components/StepCard.vue";
 import { ref } from "vue";
+import { useRouter } from "vue-router";
+import { onMounted } from "vue";
+import { isCourseCompleted } from "../utils/progress.js";
+
+const router = useRouter();
+
+const openCourse = (id) => {
+  router.push(`/cours/${id}`);
+};
 
 const steps = ref([
   {
     id: 1,
-    title: "Les Mots de Passe Forts",
-    description: "Apprenez à créer et gérer des mots de passe impossibles à deviner.",
-    status: "done", // done | current | locked
-    label: "Étape 1 — Terminé"
+    title: "Créer un mot de passe solide",
+    description: "Apprenez comment rendre vos comptes plus difficiles à pirater.",
+    status: "locked",
+    label: "Étape 1"
   },
   {
     id: 2,
-    title: "Reconnaître le Phishing",
-    description: "Découvrez les astuces des pirates pour éviter les pièges les plus courants.",
-    status: "current",
-    label: "Étape 2 — En cours"
+    title: "Reconnaître un email frauduleux",
+    description: "Comprenez les signes d'une tentative de phishing.",
+    status: "locked",
+    label: "Étape 2"
   },
   {
     id: 3,
-    title: "Protéger ses Données",
-    description: "Maîtrisez les bons réflexes pour garder vos informations personnelles en sécurité.",
+    title: "Sécuriser vos données personnelles",
+    description: "Protégez vos informations en ligne.",
     status: "locked",
-    label: "Étape 3 — Verrouillé"
+    label: "Étape 3"
   }
 ]);
+
+onMounted(() => {
+  steps.value[0].status = "current"; // Cours 1 débloqué par défaut
+
+  if (isCourseCompleted(1)) {
+    steps.value[0].status = "done";
+    steps.value[1].status = "current";
+  }
+  if (isCourseCompleted(2)) {
+    steps.value[1].status = "done";
+    steps.value[2].status = "current";
+  }
+  if (isCourseCompleted(3)) {
+    steps.value[2].status = "done";
+  }
+});
 </script>

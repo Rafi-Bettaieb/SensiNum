@@ -15,6 +15,7 @@ onMounted(() => {
     easyLevelCompleted.value = true;
   }
   
+  // Pour le niveau moyen
   const mediumCompleted = localStorage.getItem('medium_level_completed');
   if (mediumCompleted === 'true') {
     mediumLevelCompleted.value = true;
@@ -22,7 +23,6 @@ onMounted(() => {
 });
 
 const mediumUnlocked = computed(() => easyLevelCompleted.value);
-const hardUnlocked = computed(() => mediumLevelCompleted.value);
 
 const navigateToMedium = () => {
   if (mediumUnlocked.value) {
@@ -149,31 +149,6 @@ const setFilter = (filter) => {
               class="btn-play"
             >
               {{ mediumLevelCompleted ? 'Rejouer' : 'Jouer' }}
-            </button>
-            <button v-else disabled class="btn-locked">
-              Verrouillé
-            </button>
-          </div>
-
-          <div 
-            :class="hardUnlocked ? 'level-card-active' : 'level-card-locked'"
-            @click="navigateToHard"
-          >
-            <h3 :class="hardUnlocked ? 'level-title-active' : 'level-title-locked'">Niveau Difficile</h3>
-            <p class="level-subtitle">Pour les experts</p>
-            
-            <div v-if="hardUnlocked" class="level-icon-circle">
-               <span class="text-2xl font-extrabold text-[#00C16A]">3</span>
-            </div>
-            <div v-else class="locked-icon-wrapper">
-                <Lock :size="32" class="text-gray-400" />
-            </div>
-
-            <button 
-              v-if="hardUnlocked"
-              class="btn-play"
-            >
-              Jouer
             </button>
             <button v-else disabled class="btn-locked">
               Verrouillé

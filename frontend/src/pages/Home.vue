@@ -1,5 +1,6 @@
 <template>
   <div class="min-h-screen bg-gradient-to-b from-gray-900 via-gray-900 to-gray-800 text-white">
+  <div class="min-h-screen bg-gradient-to-b from-gray-900 via-gray-900 to-gray-800 text-white relative">
     <section class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-24 lg:py-28">
       <div class="max-w-5xl mx-auto text-center">
         <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 leading-tight animate-fade-in text-white">
@@ -10,6 +11,7 @@
         </p>
         
         <div class="relative bg-gradient-to-br from-gray-700 to-gray-800 rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl hover:shadow-green-500/20 transition-shadow duration-300 aspect-video max-w-4xl mx-auto group">
+        <div class="relative bg-gradient-to-br from-gray-700 to-gray-800 rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl hover:shadow-blue-500/20 transition-shadow duration-300 aspect-video max-w-4xl mx-auto group">
           <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
           <div class="absolute inset-0 flex items-center justify-center z-10">
             <button class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-green-600 rounded-full flex items-center justify-center hover:bg-green-700 transition-all transform hover:scale-110 group-hover:scale-105 shadow-2xl ring-4 ring-green-500/30 hover:ring-green-400/50">
@@ -38,6 +40,8 @@
           <div 
             class="bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-xl sm:rounded-2xl p-6 sm:p-8 hover:border-green-500 hover:shadow-xl hover:shadow-green-500/10 transition-all duration-300 cursor-pointer group transform hover:-translate-y-2"
             @click="navigateTo('/awareness')"
+            class="bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-xl sm:rounded-2xl p-6 sm:p-8 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 cursor-pointer group transform hover:-translate-y-2"
+            @click="navigateTo('/parcours')"
           >
             <div class="text-green-500 mb-4 sm:mb-6 transform group-hover:scale-110 transition-transform duration-300">
               <svg class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 mx-auto" fill="currentColor" viewBox="0 0 20 20">
@@ -115,6 +119,8 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 max-w-6xl mx-auto">
           <div class="flex flex-col items-start sm:items-center lg:items-start bg-gray-700/50 p-6 sm:p-8 rounded-xl sm:rounded-2xl hover:bg-gray-700 transition-all duration-300 group border border-transparent hover:border-green-500/30">
             <div class="text-green-400 mb-4 sm:mb-6 transform group-hover:scale-110 transition-transform duration-300">
+          <div class="flex flex-col items-start sm:items-center lg:items-start bg-gray-700/50 p-6 sm:p-8 rounded-xl sm:rounded-2xl hover:bg-gray-700 transition-all duration-300 group border border-transparent hover:border-blue-500/30">
+            <div class="text-blue-400 mb-4 sm:mb-6 transform group-hover:scale-110 transition-transform duration-300">
               <svg class="w-10 h-10 sm:w-12 sm:h-12" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M2.94 6.412A2 2 0 002 8.108V16a2 2 0 002 2h12a2 2 0 002-2V8.108a2 2 0 00-.94-1.696l-6-3.75a2 2 0 00-2.12 0l-6 3.75zm2.615 2.423a1 1 0 10-1.11 1.664l5 3.333a1 1 0 001.11 0l5-3.333a1 1 0 00-1.11-1.664L10 11.798 5.555 8.835z" clip-rule="evenodd" />
               </svg>
@@ -129,6 +135,8 @@
 
           <div class="flex flex-col items-start sm:items-center lg:items-start bg-gray-700/50 p-6 sm:p-8 rounded-xl sm:rounded-2xl hover:bg-gray-700 transition-all duration-300 group border border-transparent hover:border-green-500/30">
             <div class="text-green-400 mb-4 sm:mb-6 transform group-hover:scale-110 transition-transform duration-300">
+          <div class="flex flex-col items-start sm:items-center lg:items-start bg-gray-700/50 p-6 sm:p-8 rounded-xl sm:rounded-2xl hover:bg-gray-700 transition-all duration-300 group border border-transparent hover:border-blue-500/30">
+            <div class="text-blue-400 mb-4 sm:mb-6 transform group-hover:scale-110 transition-transform duration-300">
               <svg class="w-10 h-10 sm:w-12 sm:h-12" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
               </svg>
@@ -143,6 +151,8 @@
 
           <div class="flex flex-col items-start sm:items-center lg:items-start bg-gray-700/50 p-6 sm:p-8 rounded-xl sm:rounded-2xl hover:bg-gray-700 transition-all duration-300 group border border-transparent hover:border-green-500/30 sm:col-span-2 lg:col-span-1">
             <div class="text-green-400 mb-4 sm:mb-6 transform group-hover:scale-110 transition-transform duration-300">
+          <div class="flex flex-col items-start sm:items-center lg:items-start bg-gray-700/50 p-6 sm:p-8 rounded-xl sm:rounded-2xl hover:bg-gray-700 transition-all duration-300 group border border-transparent hover:border-blue-500/30 sm:col-span-2 lg:col-span-1">
+            <div class="text-blue-400 mb-4 sm:mb-6 transform group-hover:scale-110 transition-transform duration-300">
               <svg class="w-10 h-10 sm:w-12 sm:h-12" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M4.083 9h1.946c.089-1.546.383-2.97.837-4.118A6.004 6.004 0 004.083 9zM10 2a8 8 0 100 16 8 8 0 000-16zm0 2c-.076 0-.232.032-.465.262-.238.234-.497.623-.737 1.182-.389.907-.673 2.142-.766 3.556h3.936c-.093-1.414-.377-2.649-.766-3.556-.24-.56-.5-.948-.737-1.182C10.232 4.032 10.076 4 10 4zm3.971 5c-.089-1.546-.383-2.97-.837-4.118A6.004 6.004 0 0115.917 9h-1.946zm-2.003 2H8.032c.093 1.414.377 2.649.766 3.556.24.56.5.948.737 1.182.233.23.389.262.465.262.076 0 .232-.032.465-.262.238-.234.498-.623.737-1.182.389-.907.673-2.142.766-3.556zm1.166 4.118c.454-1.147.748-2.572.837-4.118h1.946a6.004 6.004 0 01-2.783 4.118zm-6.268 0C6.412 13.97 6.118 12.546 6.03 11H4.083a6.004 6.004 0 002.783 4.118z" clip-rule="evenodd" />
               </svg>
@@ -169,16 +179,61 @@
         </div>
       </div>
     </footer>
+
+    <div v-if="showCookieBanner" class="fixed bottom-0 left-0 w-full bg-white text-gray-900 p-6 shadow-[0_-4px_20px_rgba(0,0,0,0.5)] z-50 animate-fade-in-up">
+      <div class="container mx-auto max-w-6xl flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex-1">
+          <h4 class="font-bold text-lg mb-1 flex items-center text-red-600">
+            <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+            VÉRIFICATION DE SÉCURITÉ
+          </h4>
+          <p class="text-sm md:text-base text-gray-700">
+            Ce site utilise des traceurs pour analyser votre position géographique. 
+            <strong>Pour votre sécurité, nous vous recommandons de REFUSER.</strong>
+            Si vous acceptez, vos données seront affichées.
+          </p>
+        </div>
+        <div class="flex gap-4 font-semibold">
+          <button 
+            @click="refuseCookies"
+            class="px-6 py-2.5 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-transform hover:scale-105 shadow-lg"
+          >
+            Refuser (Recommandé)
+          </button>
+          <button 
+            @click="acceptCookies"
+            class="px-4 py-2.5 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg transition-colors text-sm"
+          >
+            Accepter & Continuer
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
+import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import Button from '../components/ui/Button.vue';
 
 const router = useRouter();
 
+// --- Logique du bandeau cookie ---
+const showCookieBanner = ref(true);
+
 const navigateTo = (path) => {
   router.push(path);
+};
+
+// Bon réflexe : l'utilisateur refuse le tracking
+const refuseCookies = () => {
+  showCookieBanner.value = false;
+  alert("Bravo ! C'est le bon réflexe. Refusez toujours les cookies non essentiels pour protéger votre vie privée.");
+};
+
+// Mauvais réflexe : l'utilisateur accepte -> Redirection vers le piège
+const acceptCookies = () => {
+  router.push('/cookie-trap');
 };
 </script>
