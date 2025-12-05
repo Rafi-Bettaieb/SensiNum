@@ -1,0 +1,207 @@
+/* Fichier : src/assets/styles/video-demos.css */
+
+/* --- 1. CONFIGURATION GLOBALE DE LA PAGE --- */
+.demos-page {
+    background-color: #0b0d11; 
+    padding: 4rem 2rem;
+    color: #ffffff;
+    min-height: 100vh;
+  }
+  
+  .page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* --- 2. EN-TÊTE --- */
+  .demos-header {
+    margin-bottom: 3rem;
+  }
+  
+  .page-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+    color: white;
+  }
+  
+  .page-subtitle {
+    color: #9ca3af;
+    font-size: 1.1rem;
+    max-width: 700px;
+    line-height: 1.6;
+  }
+  
+  /* --- 3. CONTRÔLES (Recherche & Filtres) --- */
+  .controls-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    align-items: center;
+  }
+  
+  .search-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+  }
+  
+  .search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6b7280;
+  }
+  
+  .search-input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.8rem;
+    background-color: #161b22; 
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    color: white;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  
+  /* CHANGEMENT DE COULEUR ICI (Vert au focus) */
+  .search-input:focus {
+    border-color: #00C16A; 
+  }
+  
+  .search-input::placeholder {
+    color: #6b7280;
+  }
+  
+  .filters-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  
+  .filter-btn {
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    color: #9ca3af;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .filter-btn:hover {
+    background-color: #21262d;
+    color: white;
+  }
+  
+  /* CHANGEMENT DE COULEUR ICI (Vert pour l'actif) */
+  .filter-btn.active {
+    background-color: #00C16A;
+    border-color: #00C16A;
+    color: black; /* Texte noir pour un meilleur contraste sur le vert */
+    font-weight: 700;
+  }
+  
+  /* --- 4. GRILLE VIDÉOS --- */
+  .videos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 2.5rem;
+  }
+  
+  .video-card {
+    background: transparent;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  .video-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .thumbnail {
+    height: 200px;
+    position: relative;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+  }
+  
+  /* Style du bouton Play */
+  .play-overlay {
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(2px);
+    transition: transform 0.2s, background 0.2s;
+    border: 2px solid rgba(255,255,255,0.8);
+  }
+  
+  .video-card:hover .play-overlay {
+    transform: scale(1.1);
+    background: rgba(0, 0, 0, 0.6);
+    border-color: #00C16A; /* Bordure verte au survol */
+  }
+  
+  /* Couleur de l'icône Play */
+  .play-icon {
+    color: white;
+    fill: white;
+    transition: color 0.2s;
+  }
+
+  .video-card:hover .play-icon {
+    color: #00C16A; /* Icône verte au survol */
+    fill: #00C16A;
+  }
+  
+  .duration {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background: rgba(0, 0, 0, 0.75);
+    color: #e5e7eb;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  
+  .card-content {
+    padding: 0.25rem 0;
+  }
+  
+  .video-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+  }
+  
+  .video-desc {
+    color: #9ca3af;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  
+  .no-results {
+    text-align: center;
+    color: #6b7280;
+    margin-top: 4rem;
+    font-size: 1.2rem;
+  }

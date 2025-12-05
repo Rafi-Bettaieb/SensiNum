@@ -1,5 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import DefaultLayout from '../layouts/DefaultLayout.vue';
+
+// Imports des layouts
+// Vérifie que ce fichier existe bien dans src/layouts/
+// Sinon, change pour un composant existant ou supprime la ligne si inutile
+import DefaultLayout from '../layouts/DefaultLayout.vue'; 
+
+// Imports des pages (Uniquement celles qui existent vraiment dans ton dossier src/pages)
 import Home from '../pages/Home.vue';
 import Awareness from '../pages/Awareness.vue';
 import PhishingSimulator from '../pages/PhishingSimulator.vue';
@@ -7,13 +13,15 @@ import Quiz from '../pages/Quiz.vue';
 import QuizSelection from '../pages/QuizSelection.vue';
 import Chatbot from '../pages/Chatbot.vue';
 import About from '../pages/About.vue';
-import Parcours from '../pages/Parcours.vue';
-import Videos from '../pages/Videos.vue';
+import VideoDemos from '../pages/VideoDemos.vue'; 
 
 const routes = [
   {
     path: '/',
-    component: DefaultLayout,
+    // Si DefaultLayout n'existe pas, retire "component: DefaultLayout," 
+    // et retire les "children: [...]" pour mettre les routes à plat.
+    // Mais supposons qu'il existe pour l'instant.
+    component: DefaultLayout, 
     children: [
       {
         path: '',
@@ -45,8 +53,16 @@ const routes = [
         name: 'About',
         component: About
       },
-      { path: '/quiz-selection', 
-        component: QuizSelection }
+      {
+        path: 'demos', // Pas de '/' au début quand on est dans des children
+        name: 'Demos',
+        component: VideoDemos
+      },
+      {
+        path: 'quiz-selection', // Idem, pas de '/'
+        name: 'QuizSelection',
+        component: QuizSelection 
+      }
     ]
   }
 ];

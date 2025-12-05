@@ -12,16 +12,22 @@ import { Shield } from 'lucide-vue-next';
     </router-link>
 
     <nav class="hidden md:flex gap-8 text-sm font-medium">
+      
       <router-link to="/quiz-selection" active-class="text-[#00C16A]" class="hover:text-[#00C16A] transition text-gray-400">
         Cours
       </router-link>
-      <a href="#" class="hover:text-[#00C16A] transition text-gray-400">Démos Vidéo</a>
+
+      <router-link to="/demos" active-class="text-[#00C16A]" class="hover:text-[#00C16A] transition text-gray-400">
+        Démos Vidéo
+      </router-link>
       
       <router-link to="/quiz-selection" active-class="text-[#00C16A]" class="hover:text-[#00C16A] transition text-gray-400">
         Quiz et Mini-Jeux
       </router-link>
       
-      <a href="#" class="hover:text-[#00C16A] transition text-gray-400">À propos</a>
+      <router-link to="/about" active-class="text-[#00C16A]" class="hover:text-[#00C16A] transition text-gray-400">
+        À propos
+      </router-link>
     </nav>
 
     <div class="flex gap-4 items-center">
