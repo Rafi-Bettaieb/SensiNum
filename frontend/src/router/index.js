@@ -25,6 +25,7 @@ import PhishingQuizMedium from '../pages/PhishingQuizMedium.vue';
 import PhoneScamMedium from '../pages/PhoneScamMedium.vue';
 import OnlineShoppingMedium from '../pages/OnlineShoppingMedium.vue';
 import FinalExamMedium from '../pages/FinalExamMedium.vue';
+import CookieTrap from '../pages/CookieTrap.vue';
 
 const routes = [
   {
@@ -38,6 +39,11 @@ const routes = [
         path: '',
         name: 'Home',
         component: Home
+      },
+      {
+        path: 'parcours',
+        name: 'Parcours',
+        component: () => import('../pages/Parcours.vue')
       },
       {
         path: 'awareness',
@@ -72,7 +78,19 @@ const routes = [
       {
         path: 'quiz-selection',
         name: 'QuizSelection',
-        component: QuizSelection
+        component: QuizSelection 
+      },
+      {
+        path: '/cours/1',
+        component: () => import('../pages/cours/Cours1.vue')
+      },
+      {
+        path: '/cours/2',
+        component: () => import('../pages/cours/Cours2.vue')
+      },
+      {
+        path: '/cours/3',
+        component: () => import('../pages/cours/Cours3.vue')
       },
       {
         path: 'email-simulation',
@@ -128,7 +146,14 @@ const routes = [
         path: 'final-exam-medium',
         name: 'FinalExamMedium',
         component: FinalExamMedium
+      path: '/cookie-trap',
+      name: 'CookieTrap',
+      component: CookieTrap
+    }
+      
       }
+
+
     ]
   }
 ];
