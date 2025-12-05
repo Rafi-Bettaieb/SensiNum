@@ -1,117 +1,105 @@
+<script setup>
+import { Github, Code, Users, Shield, Send, Mail, MessageSquare } from 'lucide-vue-next';
+
+// Fonction factice pour l'envoi du formulaire
+const submitForm = () => {
+  alert("Message envoyé ! (Simulation)");
+};
+</script>
+
 <template>
-  <div class="container mx-auto px-4 py-8">
-    <div class="max-w-4xl mx-auto">
-      <SectionTitle 
-        title="À propos de SensiNum" 
-        subtitle="Notre mission : sensibiliser à la cybersécurité"
-        :level="1"
-        align="center"
-        class="mb-8"
-      />
-
-      <Card variant="elevated" class="mb-8">
-        <template #header>
-          <h3 class="text-2xl font-semibold">Notre Mission</h3>
-        </template>
-        <p class="text-gray-700 leading-relaxed mb-4">
-          SensiNum est une plateforme éducative dédiée à la sensibilisation à la cybersécurité. 
-          Notre objectif est de rendre les bonnes pratiques de sécurité informatique accessibles 
-          à tous, de manière interactive et ludique.
+  <div class="about-page">
+    <div class="page-container">
+      
+      <div class="about-header">
+        <h1 class="page-title">À propos du projet</h1>
+        <p class="page-subtitle">
+          SécuritéNumérique est une initiative communautaire pour rendre la cybersécurité accessible à tous.
         </p>
-        <p class="text-gray-700 leading-relaxed">
-          Dans un monde de plus en plus connecté, il est essentiel de comprendre les risques 
-          en ligne et de savoir comment se protéger. Nous offrons des outils pratiques pour 
-          vous aider à développer ces compétences essentielles.
-        </p>
-      </Card>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-        <Card>
-          <template #header>
-            <h3 class="text-xl font-semibold">🎯 Nos Objectifs</h3>
-          </template>
-          <ul class="space-y-3">
-            <li class="flex items-start">
-              <span class="text-blue-500 mr-2">•</span>
-              <span>Former aux bonnes pratiques de cybersécurité</span>
-            </li>
-            <li class="flex items-start">
-              <span class="text-blue-500 mr-2">•</span>
-              <span>Sensibiliser aux risques en ligne</span>
-            </li>
-            <li class="flex items-start">
-              <span class="text-blue-500 mr-2">•</span>
-              <span>Proposer des outils pratiques et interactifs</span>
-            </li>
-            <li class="flex items-start">
-              <span class="text-blue-500 mr-2">•</span>
-              <span>Rendre la sécurité accessible à tous</span>
-            </li>
-          </ul>
-        </Card>
-
-        <Card>
-          <template #header>
-            <h3 class="text-xl font-semibold">🛠️ Nos Outils</h3>
-          </template>
-          <ul class="space-y-3">
-            <li class="flex items-start">
-              <span class="text-green-500 mr-2">✓</span>
-              <span>Page de sensibilisation interactive</span>
-            </li>
-            <li class="flex items-start">
-              <span class="text-green-500 mr-2">✓</span>
-              <span>Simulateur de phishing</span>
-            </li>
-            <li class="flex items-start">
-              <span class="text-green-500 mr-2">✓</span>
-              <span>Quiz de connaissances</span>
-            </li>
-            <li class="flex items-start">
-              <span class="text-green-500 mr-2">✓</span>
-              <span>Chatbot d'assistance</span>
-            </li>
-          </ul>
-        </Card>
       </div>
 
-      <Card variant="bordered">
-        <template #header>
-          <h3 class="text-xl font-semibold">💡 Pourquoi la cybersécurité est importante ?</h3>
-        </template>
-        <div class="space-y-4 text-gray-700">
+      <div class="about-grid">
+        
+        <div class="info-card">
+          <div class="icon-wrapper">
+            <Shield :size="40" class="icon-green" />
+          </div>
+          <h3>Notre Mission</h3>
           <p>
-            <strong>Protection des données personnelles :</strong> Vos informations personnelles 
-            sont précieuses et doivent être protégées contre le vol et l'utilisation abusive.
-          </p>
-          <p>
-            <strong>Prévention de la fraude :</strong> Les cybercriminels utilisent diverses 
-            techniques pour voler de l'argent et des identités. La sensibilisation est votre 
-            première ligne de défense.
-          </p>
-          <p>
-            <strong>Sécurité professionnelle :</strong> Les compétences en cybersécurité sont 
-            essentielles dans le monde professionnel moderne pour protéger les entreprises et 
-            leurs clients.
-          </p>
-          <p>
-            <strong>Culture numérique :</strong> Comprendre les risques en ligne fait partie 
-            de la culture numérique moderne que chacun devrait posséder.
+            Nous croyons que la sécurité en ligne ne doit pas être réservée aux experts. 
+            Notre plateforme propose des cours interactifs pour apprendre à se protéger.
           </p>
         </div>
-      </Card>
 
-      <div class="text-center mt-8">
-        <Button variant="primary" size="lg" @click="$router.push('/')">
-          Retour à l'accueil
-        </Button>
+        <div class="info-card highlight-card">
+          <div class="icon-wrapper">
+            <Code :size="40" class="icon-green" />
+          </div>
+          <h3>100% Open Source</h3>
+          <p>
+            Ce projet est transparent. Le code est accessible et améliorable par tous. 
+            Nous encourageons les contributions.
+          </p>
+          <a href="https://github.com/Rafi-Bettaieb/SensiNum" target="_blank" class="github-btn">
+            <Github :size="20" />
+            Voir le GitHub
+          </a>
+        </div>
+
+        <div class="info-card">
+          <div class="icon-wrapper">
+            <Users :size="40" class="icon-green" />
+          </div>
+          <h3>Par la communauté</h3>
+          <p>
+            Le contenu est vérifié par des passionnés pour coller aux dernières actualités 
+            (Phishing, RGPD, Mots de passe, etc.).
+          </p>
+        </div>
       </div>
+
+      <div class="contact-section">
+        <h2 class="section-title">Nous contacter</h2>
+        <p class="section-subtitle">Une idée, un bug ou une question ? Écrivez-nous.</p>
+
+        <div class="form-wrapper">
+          <form @submit.prevent="submitForm" class="contact-form">
+            
+            <div class="input-group">
+              <div class="input-field">
+                <label>Nom</label>
+                <input type="text" placeholder="Votre nom" required />
+              </div>
+              <div class="input-field">
+                <label>Email</label>
+                <input type="email" placeholder="email@exemple.com" required />
+              </div>
+            </div>
+
+            <div class="input-field">
+              <label>Message</label>
+              <textarea placeholder="Votre message..." rows="4" required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">
+              <Send :size="18" />
+              Envoyer
+            </button>
+          </form>
+
+          <div class="contact-links">
+             <div class="link-item">
+                <Mail :size="16" class="icon-green"/> support@securitenumerique.org
+             </div>
+             <div class="link-item">
+                <MessageSquare :size="16" class="icon-green"/> Discord Communautaire
+             </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </template>
 
-<script setup>
-import SectionTitle from '../components/ui/SectionTitle.vue';
-import Card from '../components/ui/Card.vue';
-import Button from '../components/ui/Button.vue';
-</script>
+<style src="../assets/styles/about.css"></style>
