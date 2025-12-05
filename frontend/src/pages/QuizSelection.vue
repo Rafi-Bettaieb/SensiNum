@@ -5,17 +5,17 @@ import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
+// --- LOGIQUE DE DÉBLOCAGE DES NIVEAUX (existante) ---
 const easyLevelCompleted = ref(false);
 const mediumLevelCompleted = ref(false);
 
 onMounted(() => {
-  // Charger l'état de complétion des niveaux
   const finalExamCompleted = localStorage.getItem('final_exam_completed');
   if (finalExamCompleted === 'true') {
     easyLevelCompleted.value = true;
   }
   
-  // Pour le niveau moyen (à implémenter plus tard)
+  // Pour le niveau moyen
   const mediumCompleted = localStorage.getItem('medium_level_completed');
   if (mediumCompleted === 'true') {
     mediumLevelCompleted.value = true;
@@ -23,7 +23,6 @@ onMounted(() => {
 });
 
 const mediumUnlocked = computed(() => easyLevelCompleted.value);
-const hardUnlocked = computed(() => mediumLevelCompleted.value);
 
 const navigateToMedium = () => {
   if (mediumUnlocked.value) {
@@ -35,6 +34,67 @@ const navigateToHard = () => {
   if (hardUnlocked.value) {
     router.push('/quiz-hard');
   }
+};
+
+
+// --- LOGIQUE DE FILTRAGE DES QUIZ ET MINI-JEUX (mise à jour de la route) ---
+
+// 1. Définition des activités avec leur type et la ROUTE ajoutée
+const activities = ref([
+    {
+        id: 1,
+        type: 'Quiz',
+        title: 'Quiz: Mots de passe robustes',
+        desc: 'Évaluez la force de vos mots de passe et apprenez les meilleures pratiques.',
+        icon: Shield,
+        headerClass: 'header-peach',
+        glowClass: 'glow-peach',
+        textColor: 'text-peach',
+        iconClass: 'text-[#1e293b] fill-[#1e293b]',
+        // ROUTE AJOUTÉE POUR LE QUIZ
+        route: '/quiz-passwords-robustes' 
+    },
+    {
+        id: 2,
+        type: 'Mini-jeu',
+        title: 'Mini-jeu: Repérez le Phishing',
+        desc: 'Identifiez les e-mails frauduleux dans une boîte de réception simulée.',
+        icon: Mail,
+        headerClass: 'header-blue',
+        glowClass: 'glow-blue',
+        textColor: 'text-blue',
+        iconClass: 'text-[#1e293b]',
+        route: '/game-phishing'
+    },
+    {
+        id: 3,
+        type: 'Quiz',
+        title: 'Quiz: Confidentialité réseaux',
+        desc: 'Testez vos connaissances sur les paramètres de confidentialité essentiels.',
+        icon: Wifi,
+        headerClass: 'header-teal',
+        glowClass: 'glow-teal',
+        textColor: 'text-teal',
+        iconClass: 'text-[#115e59]',
+        route: '/quiz-privacy'
+    },
+    // Ajoutez ici d'autres activités si nécessaire
+]);
+
+// 2. État du filtre actif
+const activeFilter = ref('Tous');
+
+// 3. Propriété calculée pour le filtrage
+const filteredActivities = computed(() => {
+    if (activeFilter.value === 'Tous') {
+        return activities.value;
+    }
+    return activities.value.filter(activity => activity.type === activeFilter.value);
+});
+
+// 4. Fonction pour changer le filtre
+const setFilter = (filter) => {
+    activeFilter.value = filter;
 };
 </script>
 
@@ -95,31 +155,6 @@ const navigateToHard = () => {
             </button>
           </div>
 
-          <div 
-            :class="hardUnlocked ? 'level-card-active' : 'level-card-locked'"
-            @click="navigateToHard"
-          >
-            <h3 :class="hardUnlocked ? 'level-title-active' : 'level-title-locked'">Niveau Difficile</h3>
-            <p class="level-subtitle">Pour les experts</p>
-            
-            <div v-if="hardUnlocked" class="level-icon-circle">
-               <span class="text-2xl font-extrabold text-[#00C16A]">3</span>
-            </div>
-            <div v-else class="locked-icon-wrapper">
-                <Lock :size="32" class="text-gray-400" />
-            </div>
-
-            <button 
-              v-if="hardUnlocked"
-              class="btn-play"
-            >
-              Jouer
-            </button>
-            <button v-else disabled class="btn-locked">
-              Verrouillé
-            </button>
-          </div>
-
         </div>
       </section>
 
@@ -128,46 +163,44 @@ const navigateToHard = () => {
         <p class="section-desc">Choisissez une carte pour commencer !</p>
         
         <div class="filter-container">
-          <button class="filter-btn-active">Tous</button>
-          <button class="filter-btn">Quiz</button>
-          <button class="filter-btn">Mini-jeux</button>
+          <button 
+            :class="['filter-btn', { 'filter-btn-active': activeFilter === 'Tous' }]"
+            @click="setFilter('Tous')"
+          >
+            Tous
+          </button>
+          <button 
+            :class="['filter-btn', { 'filter-btn-active': activeFilter === 'Quiz' }]"
+            @click="setFilter('Quiz')"
+          >
+            Quiz
+          </button>
+          <button 
+            :class="['filter-btn', { 'filter-btn-active': activeFilter === 'Mini-jeu' }]"
+            @click="setFilter('Mini-jeu')"
+          >
+            Mini-jeux
+          </button>
         </div>
 
         <div class="cards-grid">
           
-          <div class="game-card">
-            <div class="game-header header-peach">
-               <div class="glow-effect glow-peach"></div>
-               <Shield :size="72" class="game-icon text-[#1e293b] fill-[#1e293b]" />
+          <router-link 
+            v-for="activity in filteredActivities" 
+            :key="activity.id" 
+            :to="activity.route" 
+            class="game-card"
+          >
+            <div :class="['game-header', activity.headerClass]">
+               <div :class="['glow-effect', activity.glowClass]"></div>
+               <component :is="activity.icon" :size="72" :class="['game-icon', activity.iconClass]" />
             </div>
             <div class="game-content">
-              <h4 class="game-title text-peach">Quiz: Mots de passe robustes</h4>
-              <p class="game-desc">Évaluez la force de vos mots de passe et apprenez les meilleures pratiques.</p>
+              <h4 :class="['game-title', activity.textColor]">{{ activity.title }}</h4>
+              <p class="game-desc">{{ activity.desc }}</p>
             </div>
-          </div>
-
-          <div class="game-card">
-            <div class="game-header header-blue">
-               <div class="glow-effect glow-blue"></div>
-               <Mail :size="72" class="game-icon text-[#1e293b]" />
-            </div>
-            <div class="game-content">
-              <h4 class="game-title text-blue">Mini-jeu: Repérez le Phishing</h4>
-              <p class="game-desc">Identifiez les e-mails frauduleux dans une boîte de réception simulée.</p>
-            </div>
-          </div>
-
-          <div class="game-card">
-            <div class="game-header header-teal">
-               <div class="glow-effect glow-teal"></div>
-               <Wifi :size="72" class="game-icon text-[#115e59]" />
-            </div>
-            <div class="game-content">
-              <h4 class="game-title text-teal">Quiz: Confidentialité réseaux</h4>
-              <p class="game-desc">Testez vos connaissances sur les paramètres de confidentialité essentiels.</p>
-            </div>
-          </div>
-
+          </router-link>
+          
         </div>
       </section>
 
