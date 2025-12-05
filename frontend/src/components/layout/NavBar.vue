@@ -19,7 +19,9 @@ const navItems = ref([
   { path: '/', label: 'Accueil' },
   { path: '/awareness', label: 'Sensibilisation' },
   { path: '/phishing', label: 'Phishing' },
+  { path: '/parcours', label: 'Cours' },
   { path: '/quiz', label: 'Quiz' },
+  { path: '/videos', label: 'Demo Video' },
   { path: '/chatbot', label: 'Chatbot' },
   { path: '/about', label: 'À propos' }
 ]);
