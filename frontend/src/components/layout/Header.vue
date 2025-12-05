@@ -13,7 +13,7 @@ import { Shield } from 'lucide-vue-next';
 
     <nav class="hidden md:flex gap-8 text-sm font-medium">
       
-      <router-link to="/quiz-selection" active-class="text-[#00C16A]" class="hover:text-[#00C16A] transition text-gray-400">
+      <router-link to="/parcours" active-class="text-[#00C16A]" class="hover:text-[#00C16A] transition text-gray-400">
         Cours
       </router-link>
 
