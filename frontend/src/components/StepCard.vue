@@ -1,52 +1,44 @@
 <template>
   <div class="relative">
 
-    <!-- Timeline icon -->
     <div
-      class="absolute -left-12 w-8 h-8 rounded-full flex items-center justify-center shadow-md"
+      class="absolute -left-12 w-10 h-10 rounded-full flex items-center justify-center shadow-lg border border-gray-700"
       :class="iconBg"
-      :aria-hidden="true"
     >
-      <!-- Render the right SVG component -->
-      <span v-if="step.status === 'done'" class="w-4 h-4" v-html="checkSvg"></span>
-      <span v-else-if="step.status === 'current'" class="w-4 h-4" v-html="playSvg"></span>
-      <span v-else class="w-4 h-4" v-html="lockSvg"></span>
+      <span v-if="step.status === 'done'" v-html="checkSvg" class="w-5"></span>
+      <span v-else-if="step.status === 'current'" v-html="playSvg" class="w-5"></span>
+      <span v-else v-html="lockSvg" class="w-5"></span>
     </div>
 
-    <!-- Card -->
     <div
-      class="p-6 rounded-xl border bg-gray-900 border-gray-700 shadow-md transition"
-      :class="{ 'opacity-40': step.status === 'locked' }"
+      class="bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-2xl p-8
+             shadow-lg hover:border-blue-500 hover:shadow-blue-500/10 backdrop-blur-sm transform 
+             transition-all duration-300 group hover:-translate-y-1"
+      :class="{ 'opacity-50': step.status === 'locked' }"
     >
-      <p class="text-sm font-semibold mb-1" :class="labelColor">
-        {{ step.label }}
-      </p>
 
-      <h3 class="text-xl font-semibold mb-2">
-        {{ step.title }}
-      </h3>
+      <p :class="labelColor" class="font-semibold mb-2">{{ step.label }}</p>
 
-      <p class="text-gray-400 mb-6">
-        {{ step.description }}
-      </p>
+      <h3 class="text-2xl font-bold mb-3">{{ step.title }}</h3>
 
-      <!-- Buttons -->
+      <p class="text-gray-300 mb-6">{{ step.description }}</p>
+
       <button
         v-if="step.status !== 'locked'"
+        @click="$emit('open-course', step.id)"
         :class="buttonStyle"
-        :aria-label="step.status === 'done' ? 'Refaire le cours' : 'Commencer le cours'"
       >
-        {{ step.status === 'done' ? 'Refaire le cours' : 'Commencer' }}
+        {{ step.status === 'done' ? 'Revoir le cours' : 'Commencer' }}
       </button>
 
       <button
         v-else
         disabled
-        class="px-4 py-2 rounded bg-gray-800 text-gray-500 cursor-not-allowed"
-        aria-disabled="true"
+        class="px-5 py-2 bg-gray-700 text-gray-500 rounded-lg cursor-not-allowed"
       >
         Verrouillé
       </button>
+
     </div>
 
   </div>
@@ -55,63 +47,28 @@
 <script setup>
 import { computed } from "vue";
 
-const props = defineProps({
-  step: Object
-});
+const props = defineProps({ step: Object });
 
-/* -------------------- SVG ICONS (inline) --------------------
-   They are small, accessible and styled via currentColor.
-   We use v-html to inject the SVG markup so Tailwind classes on the wrapper apply.
-   Each SVG includes a <title> for screen readers.
---------------------------------------------------------------*/
+const checkSvg = `<svg fill="none" stroke="white" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>`;
+const playSvg  = `<svg fill="white" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>`;
+const lockSvg  = `<svg fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>`;
 
-// Check (done) - a filled check mark
-const checkSvg = `
-<svg role="img" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="false" focusable="false">
-  <title>Étape terminée</title>
-  <path d="M20 6L9 17L4 12" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
-</svg>
-`;
-
-// Play (current) - triangle
-const playSvg = `
-<svg role="img" width="16" height="16" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" aria-hidden="false" focusable="false">
-  <title>Étape en cours</title>
-  <path d="M5 3.868C5 2.854 6.319 2.227 7.159 2.852L19.159 12.184C20.067 12.846 20.067 14.154 19.159 14.816L7.159 24.148C6.319 24.773 5 24.146 5 23.132V3.868Z"></path>
-</svg>
-`;
-
-// Lock (locked) - padlock
-const lockSvg = `
-<svg role="img" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="false" focusable="false">
-  <title>Étape verrouillée</title>
-  <rect x="3" y="11" width="18" height="10" rx="2" stroke="white" stroke-width="1.6" />
-  <path d="M7 11V7a5 5 0 1 1 10 0v4" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-`;
-
-/* -------------------- computed classes -------------------- */
 const iconBg = computed(() => ({
-  "bg-green-600": props.step.status === "done",
-  "bg-green-500": props.step.status === "current",
-  "bg-gray-700": props.step.status === "locked"
+  "bg-blue-600": props.step.status === "done",
+  "bg-blue-500": props.step.status === "current",
+  "bg-gray-600": props.step.status === "locked"
 }));
 
 const labelColor = computed(() => ({
-  "text-green-500": props.step.status === "done",
-  "text-green-400": props.step.status === "current",
-  "text-gray-500": props.step.status === "locked"
+  "text-blue-400": props.step.status === "done",
+  "text-blue-300": props.step.status === "current",
+  "text-gray-400": props.step.status === "locked"
 }));
 
 const buttonStyle = computed(() => {
   if (props.step.status === "done") {
-    return "px-4 py-2 rounded bg-gray-800 hover:bg-gray-700 text-gray-200 focus:ring-2 focus:ring-green-300 focus:outline-none";
+    return "px-5 py-2 rounded-lg bg-gray-700 text-gray-300 hover:bg-gray-600 transition";
   }
-  return "px-4 py-2 rounded bg-green-600 hover:bg-green-700 text-white focus:ring-2 focus:ring-green-300 focus:outline-none";
+  return "px-5 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition";
 });
 </script>
-
-<style scoped>
-/* Ensure SVG uses the wrapper size and is crisp */
-svg { display: block; width: 100%; height: 100%; }
-</style>
