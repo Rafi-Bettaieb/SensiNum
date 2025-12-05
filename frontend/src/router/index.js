@@ -19,6 +19,12 @@ import PhishingQuiz from '../pages/PhishingQuiz.vue';
 import OnlineShopping from '../pages/OnlineShopping.vue';
 import PhoneScam from '../pages/PhoneScam.vue';
 import FinalExam from '../pages/FinalExam.vue';
+import QuizMedium from '../pages/QuizMedium.vue';
+import EmailSimulationMedium from '../pages/EmailSimulationMedium.vue';
+import PhishingQuizMedium from '../pages/PhishingQuizMedium.vue';
+import PhoneScamMedium from '../pages/PhoneScamMedium.vue';
+import OnlineShoppingMedium from '../pages/OnlineShoppingMedium.vue';
+import FinalExamMedium from '../pages/FinalExamMedium.vue';
 import CookieTrap from '../pages/CookieTrap.vue';
 
 const routes = [
@@ -112,6 +118,34 @@ const routes = [
         component: FinalExam
       },
       {
+        path: 'quiz-medium',
+        name: 'QuizMedium',
+        component: QuizMedium
+      },
+      {
+        path: 'email-simulation-medium',
+        name: 'EmailSimulationMedium',
+        component: EmailSimulationMedium
+      },
+      {
+        path: 'phishing-quiz-medium',
+        name: 'PhishingQuizMedium',
+        component: PhishingQuizMedium
+      },
+      {
+        path: 'phone-scam-medium',
+        name: 'PhoneScamMedium',
+        component: PhoneScamMedium
+      },
+      {
+        path: 'online-shopping-medium',
+        name: 'OnlineShoppingMedium',
+        component: OnlineShoppingMedium
+      },
+      {
+        path: 'final-exam-medium',
+        name: 'FinalExamMedium',
+        component: FinalExamMedium
       path: '/cookie-trap',
       name: 'CookieTrap',
       component: CookieTrap
