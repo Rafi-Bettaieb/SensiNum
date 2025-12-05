@@ -1,22 +1,26 @@
+// routes/ip.js
 const express = require("express");
 const router = express.Router();
 const axios = require("axios");
 
-// GET /ip - renvoie l'adresse IP + géolocalisation
 router.get("/", async (req, res) => {
   try {
-    // Récupérer l'IP du client
-    const ip =
+    let ip =
       req.headers["x-forwarded-for"] ||
       req.socket.remoteAddress ||
       req.connection.remoteAddress;
 
-    // Nettoyer "::ffff:" si présent
-    const cleanIp = ip.replace("::ffff:", "");
+    // Nettoyage de l'IP
+    let cleanIp = ip.replace("::ffff:", "");
 
-    // Appel à l'API de géolocalisation
+    // ASTUCE POUR LE DEV : Si on est en local (127.0.0.1 ou ::1)
+    if (cleanIp === "127.0.0.1" || cleanIp === "::1") {
+      // cleanIp = "8.8.8.8"; // <-- Google (souvent aux USA)
+      cleanIp = "212.27.48.10"; // <-- IP Free SAS (Localisée à Paris)
+    }
+
+    // Appel à l'API
     const geoResponse = await axios.get(`https://ipapi.co/${cleanIp}/json/`);
-
     const data = geoResponse.data;
 
     res.json({
@@ -24,12 +28,20 @@ router.get("/", async (req, res) => {
       latitude: data.latitude,
       longitude: data.longitude,
       city: data.city,
-      region: data.region,
-      country: data.country_name
+      country_name: data.country_name,
+      org: data.org
     });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: "Impossible de récupérer la géolocalisation" });
+    // Valeurs par défaut (Centre de Paris) en cas d'erreur API
+    res.status(200).json({ 
+        ip: "Inconnue", 
+        latitude: 48.8566, 
+        longitude: 2.3522,
+        city: "Paris (Fallback)",
+        country_name: "France",
+        org: "Inconnu"
+    });
   }
 });
 

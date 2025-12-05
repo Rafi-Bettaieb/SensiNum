@@ -1,6 +1,5 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-b from-gray-900 via-gray-900 to-gray-800 text-white">
-    <!-- Hero Section -->
+  <div class="min-h-screen bg-gradient-to-b from-gray-900 via-gray-900 to-gray-800 text-white relative">
     <section class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-24 lg:py-28">
       <div class="max-w-5xl mx-auto text-center">
         <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 leading-tight animate-fade-in text-white">
@@ -10,7 +9,6 @@
           La sécurité sur internet, c'est simple ! Regardez notre vidéo de 2 minutes pour comprendre les bases.
         </p>
         
-        <!-- Video Placeholder -->
         <div class="relative bg-gradient-to-br from-gray-700 to-gray-800 rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl hover:shadow-blue-500/20 transition-shadow duration-300 aspect-video max-w-4xl mx-auto group">
           <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
           <div class="absolute inset-0 flex items-center justify-center z-10">
@@ -25,7 +23,6 @@
       </div>
     </section>
 
-    <!-- Activities Section -->
     <section class="bg-gray-900 py-12 sm:py-16 md:py-20 lg:py-24">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-10 sm:mb-12 md:mb-16">
@@ -38,7 +35,6 @@
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-7xl mx-auto">
-          <!-- Cours faciles -->
           <div 
             class="bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-xl sm:rounded-2xl p-6 sm:p-8 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 cursor-pointer group transform hover:-translate-y-2"
             @click="navigateTo('/parcours')"
@@ -60,7 +56,6 @@
             </button>
           </div>
 
-          <!-- Quiz amusants -->
           <div 
             class="bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-xl sm:rounded-2xl p-6 sm:p-8 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 cursor-pointer group transform hover:-translate-y-2"
             @click="navigateTo('/quiz')"
@@ -82,7 +77,6 @@
             </button>
           </div>
 
-          <!-- Mini-Jeux -->
           <div 
             class="bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-xl sm:rounded-2xl p-6 sm:p-8 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 cursor-pointer group transform hover:-translate-y-2 sm:col-span-2 lg:col-span-1"
             @click="navigateTo('/phishing')"
@@ -107,7 +101,6 @@
       </div>
     </section>
 
-    <!-- Dangers Section -->
     <section class="bg-gray-800 py-12 sm:py-16 md:py-20 lg:py-24">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-10 sm:mb-12 md:mb-16">
@@ -120,7 +113,6 @@
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 max-w-6xl mx-auto">
-          <!-- Phishing -->
           <div class="flex flex-col items-start sm:items-center lg:items-start bg-gray-700/50 p-6 sm:p-8 rounded-xl sm:rounded-2xl hover:bg-gray-700 transition-all duration-300 group border border-transparent hover:border-blue-500/30">
             <div class="text-blue-400 mb-4 sm:mb-6 transform group-hover:scale-110 transition-transform duration-300">
               <svg class="w-10 h-10 sm:w-12 sm:h-12" fill="currentColor" viewBox="0 0 20 20">
@@ -135,7 +127,6 @@
             </p>
           </div>
 
-          <!-- Weak Passwords -->
           <div class="flex flex-col items-start sm:items-center lg:items-start bg-gray-700/50 p-6 sm:p-8 rounded-xl sm:rounded-2xl hover:bg-gray-700 transition-all duration-300 group border border-transparent hover:border-blue-500/30">
             <div class="text-blue-400 mb-4 sm:mb-6 transform group-hover:scale-110 transition-transform duration-300">
               <svg class="w-10 h-10 sm:w-12 sm:h-12" fill="currentColor" viewBox="0 0 20 20">
@@ -150,7 +141,6 @@
             </p>
           </div>
 
-          <!-- Malware -->
           <div class="flex flex-col items-start sm:items-center lg:items-start bg-gray-700/50 p-6 sm:p-8 rounded-xl sm:rounded-2xl hover:bg-gray-700 transition-all duration-300 group border border-transparent hover:border-blue-500/30 sm:col-span-2 lg:col-span-1">
             <div class="text-blue-400 mb-4 sm:mb-6 transform group-hover:scale-110 transition-transform duration-300">
               <svg class="w-10 h-10 sm:w-12 sm:h-12" fill="currentColor" viewBox="0 0 20 20">
@@ -168,7 +158,6 @@
       </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-gray-900 border-t border-gray-800 py-6 sm:py-8">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row justify-between items-center text-gray-400 text-xs sm:text-sm space-y-4 md:space-y-0">
@@ -180,16 +169,61 @@
         </div>
       </div>
     </footer>
+
+    <div v-if="showCookieBanner" class="fixed bottom-0 left-0 w-full bg-white text-gray-900 p-6 shadow-[0_-4px_20px_rgba(0,0,0,0.5)] z-50 animate-fade-in-up">
+      <div class="container mx-auto max-w-6xl flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex-1">
+          <h4 class="font-bold text-lg mb-1 flex items-center text-red-600">
+            <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+            VÉRIFICATION DE SÉCURITÉ
+          </h4>
+          <p class="text-sm md:text-base text-gray-700">
+            Ce site utilise des traceurs pour analyser votre position géographique. 
+            <strong>Pour votre sécurité, nous vous recommandons de REFUSER.</strong>
+            Si vous acceptez, vos données seront affichées.
+          </p>
+        </div>
+        <div class="flex gap-4 font-semibold">
+          <button 
+            @click="refuseCookies"
+            class="px-6 py-2.5 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-transform hover:scale-105 shadow-lg"
+          >
+            Refuser (Recommandé)
+          </button>
+          <button 
+            @click="acceptCookies"
+            class="px-4 py-2.5 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg transition-colors text-sm"
+          >
+            Accepter & Continuer
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
+import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import Button from '../components/ui/Button.vue';
 
 const router = useRouter();
 
+// --- Logique du bandeau cookie ---
+const showCookieBanner = ref(true);
+
 const navigateTo = (path) => {
   router.push(path);
+};
+
+// Bon réflexe : l'utilisateur refuse le tracking
+const refuseCookies = () => {
+  showCookieBanner.value = false;
+  alert("Bravo ! C'est le bon réflexe. Refusez toujours les cookies non essentiels pour protéger votre vie privée.");
+};
+
+// Mauvais réflexe : l'utilisateur accepte -> Redirection vers le piège
+const acceptCookies = () => {
+  router.push('/cookie-trap');
 };
 </script>
