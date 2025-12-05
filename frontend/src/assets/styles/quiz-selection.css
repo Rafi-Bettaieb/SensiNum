@@ -1,0 +1,158 @@
+/* Fichier : src/assets/styles/quiz-selection.css */
+@import "tailwindcss";
+
+/* --- Layout Global --- */
+.selection-page {
+  @apply min-h-screen bg-[#0d1117] text-white p-6 md:p-12 font-sans;
+}
+
+.page-container {
+  @apply max-w-6xl mx-auto;
+}
+
+/* --- En-têtes --- */
+.page-header {
+  @apply mb-12;
+}
+
+.page-title {
+  @apply text-4xl font-extrabold mb-3 text-white;
+}
+
+.page-subtitle {
+  @apply text-gray-300 text-lg;
+}
+
+.section-container {
+  @apply mb-16;
+}
+
+.section-title {
+  @apply text-2xl font-bold mb-2 text-white;
+}
+
+.section-desc {
+  @apply text-gray-400 text-sm mb-8;
+}
+
+/* --- Grilles --- */
+.cards-grid {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-6;
+}
+
+/* --- Cartes des Niveaux --- */
+
+/* 1. Carte Facile (Active) */
+.level-card-active {
+  @apply bg-[#161b22] rounded-xl p-8 border border-green-500/50 
+  shadow-[0_0_15px_rgba(34,197,94,0.1)] flex flex-col items-center text-center 
+  relative overflow-hidden transition duration-300;
+}
+
+.level-title-active {
+  @apply text-green-400 font-bold text-xl mb-1;
+}
+
+.level-icon-circle {
+  @apply w-16 h-16 rounded-full bg-green-500 flex items-center justify-center 
+  mb-4 shadow-lg shadow-green-900/50 transition duration-300;
+}
+
+.level-percent {
+  @apply text-white font-bold text-2xl mb-8;
+}
+
+/* Interaction : Quand on survole la carte active */
+.level-card-active:hover .level-icon-circle {
+  @apply scale-110;
+}
+
+/* 2. Cartes Verrouillées (Moyen / Difficile) */
+.level-card-locked {
+  @apply bg-[#161b22] rounded-xl p-8 border border-gray-800 flex flex-col items-center 
+  text-center opacity-70 hover:opacity-100 transition duration-300;
+}
+
+.level-title-locked {
+  @apply text-gray-200 font-bold text-xl mb-1;
+}
+
+.level-subtitle {
+  @apply text-gray-300 text-sm mb-8; /* Utilisé aussi pour active */
+}
+
+.locked-icon-wrapper {
+  @apply mb-6 mt-4 p-4 rounded-full bg-gray-800/50;
+}
+
+/* --- Boutons --- */
+.btn-play {
+  @apply w-full bg-green-500 hover:bg-green-400 text-black font-extrabold py-3 
+  rounded-lg transition shadow-md hover:shadow-green-500/20 block text-center;
+}
+
+.btn-locked {
+  @apply w-full bg-[#21262d] text-gray-500 font-bold py-3 rounded-lg 
+  cursor-not-allowed border border-gray-700;
+}
+
+/* --- Filtres --- */
+.filter-container {
+  @apply flex gap-1 mb-8 bg-[#161b22] w-fit p-1 rounded-lg border border-gray-800;
+}
+
+.filter-btn-active {
+  @apply px-5 py-1.5 bg-[#21262d] rounded text-white text-xs font-bold border border-gray-700;
+}
+
+.filter-btn {
+  @apply px-5 py-1.5 text-gray-400 hover:text-white text-xs transition font-medium;
+}
+
+/* --- Cartes Mini-Jeux --- */
+.game-card {
+  @apply bg-[#161b22] rounded-xl overflow-hidden border border-gray-800 
+  cursor-pointer transition duration-300;
+}
+
+/* Interaction : translation vers le haut au survol */
+.game-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Headers colorés des jeux */
+.game-header {
+  @apply h-44 flex items-center justify-center relative;
+}
+.header-peach { @apply bg-[#ffedd5]; }
+.header-blue  { @apply bg-[#cffafe]; }
+.header-teal  { @apply bg-[#ccfbf1]; }
+
+/* Effets de lueur derrière les icônes */
+.glow-effect {
+  @apply absolute w-24 h-24 rounded-full blur-xl opacity-50;
+}
+.glow-peach { @apply bg-orange-200; }
+.glow-blue  { @apply bg-cyan-200; }
+.glow-teal  { @apply bg-teal-200; }
+
+.game-icon {
+  @apply relative z-10 drop-shadow-lg;
+}
+
+.game-content {
+  @apply p-6;
+}
+
+.game-title {
+  @apply font-bold text-white text-lg mb-2 transition;
+}
+
+.game-desc {
+  @apply text-gray-300 text-sm leading-relaxed;
+}
+
+/* Interaction : Changement de couleur du titre au survol de la carte */
+.game-card:hover .game-title.text-peach { @apply text-green-400; } /* Adaptation au thème vert */
+.game-card:hover .game-title.text-blue  { @apply text-cyan-400; }
+.game-card:hover .game-title.text-teal  { @apply text-teal-400; }

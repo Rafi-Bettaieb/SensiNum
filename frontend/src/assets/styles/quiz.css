@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+/* --- Mise en page globale --- */
+.quiz-page {
+  @apply min-h-screen bg-[#0d1117] text-white font-sans relative overflow-hidden;
+}
+
+.back-nav {
+  @apply absolute top-6 left-6 z-20;
+}
+
+.back-link {
+  @apply flex items-center gap-2 text-gray-400 hover:text-[#00C16A] transition font-medium;
+}
+
+.main-content {
+  @apply flex flex-col items-center py-16 relative z-10;
+}
+
+.header-section {
+  @apply text-center mb-16;
+}
+
+.main-title {
+  @apply text-5xl font-extrabold mb-4 text-white tracking-tight;
+}
+
+.sub-title {
+  @apply text-gray-400 text-lg;
+}
+
+/* --- Le conteneur du chemin --- */
+.path-container {
+  @apply relative w-full max-w-md flex flex-col gap-14 pb-20;
+}
+
+.background-svg {
+  @apply absolute top-6 left-1/2 -translate-x-1/2 w-full h-[850px] pointer-events-none opacity-30;
+}
+
+/* Animation du chemin qui se dessine */
+.background-svg path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  transition: stroke-dashoffset 2s ease-in-out, stroke 0.5s ease;
+}
+
+.background-svg path.path-active {
+  stroke-dashoffset: 0;
+  stroke: #00C16A;
+  opacity: 1;
+}
+
+.background-svg path.path-completed {
+  stroke-dashoffset: 0;
+  stroke: #00C16A;
+  opacity: 0.6;
+}
+
+/* --- Styles des étapes (Steps) --- */
+.step-item {
+  /* CORRECTION : J'ai supprimé 'group' ici pour corriger l'erreur */
+  @apply relative z-10 flex flex-col items-center;
+}
+
+.step-center { @apply self-center; }
+.step-right  { @apply self-end mr-8 md:mr-0; }
+.step-left   { @apply self-start ml-8 md:ml-0; }
+.step-center-left { @apply self-center ml-24; }
+
+/* --- Styles des Boîtes (Cards) --- */
+.card-success {
+  @apply w-24 h-24 bg-[#00C16A] rounded-2xl flex items-center justify-center 
+  transform -rotate-6 shadow-[0_0_20px_rgba(0,193,106,0.3)] 
+  hover:scale-110 transition cursor-pointer;
+}
+
+.card-current {
+  @apply w-24 h-24 bg-[#0d1117] border-[3px] border-[#00C16A] rounded-2xl 
+  flex items-center justify-center transform rotate-3 
+  shadow-[0_0_15px_rgba(0,193,106,0.1)] transition cursor-pointer;
+}
+
+.card-locked {
+  @apply w-24 h-24 bg-[#161b22] border border-gray-700 rounded-2xl 
+  flex items-center justify-center;
+}
+.step-locked {
+  @apply opacity-60;
+}
+
+.card-boss {
+  @apply w-28 h-28 bg-[#161b22] border-2 border-gray-700 rounded-full 
+  flex items-center justify-center;
+}
+
+/* --- Labels --- */
+.label-success { @apply mt-4 font-bold text-lg text-[#00C16A]; }
+.label-locked  { @apply mt-4 font-bold text-gray-500 text-lg; }
+
+.label-current { 
+  @apply mt-4 font-bold text-lg text-white transition;
+}
+
+
+/* --- INTERACTIONS --- */
+/* C'est ici qu'on remplace le fonctionnement de 'group' par du CSS standard */
+
+/* Quand on survole l'étape, le titre devient vert */
+.step-item:hover .label-current {
+  @apply text-[#00C16A];
+}
+
+/* Quand on survole l'étape, la carte grossit */
+.step-item:hover .card-current {
+  @apply scale-110;
+}
